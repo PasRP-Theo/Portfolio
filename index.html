@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" data-section="home">Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-section="home">Accueil</a></li>
+                <li><a href="#" class="nav-link" data-section="activities">Mes Activités</a></li>
+                <li><a href="#" class="nav-link" data-section="projects">Projets</a></li>
+                <li><a href="#" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h1>Bonjour, je suis Théo Mertens</h1>
+                <p class="subtitle">
+                    Passionné(e) par le développement et la création, je vous présente mon univers 
+                    à travers ce portfolio. Découvrez mes projets, mes compétences et ma vision.
+                </p>
+                <a href="#" class="cta-button" data-section="activities">Découvrir mes activités</a>
+            </div>
+            
+            <div class="about-content">
+                <h2>À propos de moi</h2>
+                <p>
+                    Je suis un(e) développeur/développeuse créatif(ve) avec une passion pour l'innovation 
+                    et la résolution de problèmes complexes. Mon approche combine technique et créativité 
+                    pour créer des solutions uniques et impactantes.
+                </p>
+                <p>
+                    Toujours en quête d'apprentissage, j'aime explorer de nouvelles technologies 
+                    et relever des défis stimulants. Mon objectif est de créer des expériences 
+                    utilisateur exceptionnelles et des solutions techniques robustes.
+                </p>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="section">
+            <div class="about-content">
+                <h2>Mes Activités</h2>
+                <p>
+                    Découvrez les différents domaines dans lesquels j'évolue et les activités 
+                    qui rythment mon quotidien professionnel et personnel.
+                </p>
+            </div>
+            
+            <!-- Tableau des activités -->
+            <div class="activities-table-container">
+                <table class="activities-table">
+                    <thead>
+                        <tr>
+                            <th>Activité</th>
+                            <th>Description</th>
+                            <th>Niveau</th>
+                            <th>Action</th>
+                            <th>Photos</th>
+                            <th>heures</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="activity-name">Journée découverte artemys belgium</td>
+                            <td class="activity-description">Découverte de toutes leurs activitées</td>
+                            <td><span class="activity-level level-beginner">Débutant</span></td>
+                            <td><button class="detail-button" onclick="openModal('web-dev')">Voir détails</button></td>
+                            <td><button class="detail-button" onclick="openPhotoModal(['css/img/artemys/20231001_174115.jpg','css/img/artemys/20231001_160403.jpg','css/img/artemys/20231001_160555.jpg','css/img/artemys/20231001_160600.jpg','css/img/artemys/20231001_173323.jpg','css/img/artemys/20231001_173834.jpg','css/img/artemys/20231001_174314.jpg','css/img/artemys/20231001_174319.jpg'])">Voir photos</button></td>
+                            <td><span class="activity-level level-beginner">2 h</span></td>
+                        </tr>
+                        <tr>
+                            <td class="activity-name">Design UX/UI</td>
+                            <td class="activity-description">Conception d'interfaces intuitives et esthétiques, recherche utilisateur</td>
+                            <td><span class="activity-level level-intermediate">Intermédiaire</span></td>
+                            <td><button class="detail-button" onclick="openModal('ux-ui')">Voir détails</button></td>
+                            <td><button class="detail-button" onclick="openPhotoModal(['css/img/ui1.jpg','css/img/ui2.jpg'])">Voir photos</button></td>
+                        </tr>
+                        <tr>
+                            <td class="activity-name">Développement Web</td>
+                            <td class="activity-description">Création d'applications web modernes et responsives avec les dernières technologies</td>
+                            <td><span class="activity-level level-expert">Expert</span></td>
+                            <td><button class="detail-button" onclick="openModal('web-dev')">Voir détails</button></td>
+                            <td><button class="detail-button" onclick="openPhotoModal(['css/img/Nettoyage_PC/20240907_101449.jpg','css/img/Nettoyage_PC/20240907_102622.jpg'])">Voir photos</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="photoModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closePhotoModal()">&times;</span>
+                    <div id="photoGallery" style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="about-content">
+                <h2>Mes Projets</h2>
+                <p>
+                    Voici une sélection de mes réalisations les plus significatives. 
+                    Chaque projet représente un défi unique et une opportunité d'apprentissage.
+                </p>
+                <p style="margin-top: 40px; font-style: italic; color: #888;">
+                    Cette section sera bientôt enrichie avec mes derniers projets et réalisations.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="about-content">
+                <h2>Contact</h2>
+                <p>
+                    Vous avez un projet en tête ou souhaitez simplement échanger ? 
+                    N'hésitez pas à me contacter, je serais ravi(e) de discuter avec vous.
+                </p>
+                <p style="margin-top: 40px; font-style: italic; color: #888;">
+                    Adresse mail : theomertens12345@gmail.com
+                    <br>Numéro de téléphone : 0487 64 61 23
+                </p>
+
+                <!-- Bouton Télécharger CV -->
+                <p style="margin-top: 30px; text-align: center;">
+                    <a href="cv/CV_Theo_Mertens.pdf" target="_blank"class="cta-button">
+                        📄 Voir mon CV
+                    </a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals pour les détails des activités -->
+    <div id="web-dev-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('web-dev')">&times;</span>
+            <h3>Développement Web</h3>
+            <p><strong>Technologies maîtrisées :</strong></p>
+            <ul>
+                <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                <li>React, Vue.js, Angular</li>
+                <li>Node.js, Express.js</li>
+                <li>Bases de données : MongoDB, PostgreSQL</li>
+                <li>APIs RESTful et GraphQL</li>
+            </ul>
+            <p><strong>Expérience :</strong> Plus de 3 ans de développement web, création de sites e-commerce, applications SaaS et portfolios personnalisés.</p>
+            <p><strong>Approche :</strong> Focus sur les performances, l'accessibilité et l'expérience utilisateur optimale.</p>
+        </div>
+    </div>
+
+    <div id="ux-ui-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ux-ui')">&times;</span>
+            <h3>Design UX/UI</h3>
+            <p><strong>Compétences :</strong></p>
+            <ul>
+                <li>Recherche utilisateur et personas</li>
+                <li>Wireframing et prototypage</li>
+                <li>Design systems et guidelines</li>
+                <li>Tests d'utilisabilité</li>
+                <li>Figma, Adobe Creative Suite</li>
+            </ul>
+            <p><strong>Philosophie :</strong> Créer des interfaces qui allient beauté et fonctionnalité, en plaçant l'utilisateur au centre du processus de conception.</p>
+        </div>
+    </div>
+
+    <div id="personal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('personal')">&times;</span>
+            <h3>Projets Personnels</h3>
+            <p><strong>Projets récents :</strong></p>
+            <ul>
+                <li>Application de gestion de tâches avec IA</li>
+                <li>Jeu web interactif en WebGL</li>
+                <li>Bot Discord pour communautés</li>
+                <li>Extension Chrome pour productivité</li>
+            </ul>
+            <p><strong>Motivation :</strong> Expérimenter avec de nouvelles technologies et créer des solutions innovantes pour des problèmes du quotidien.</p>
+        </div>
+    </div>
+
+    <div id="ai-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ai')">&times;</span>
+            <h3>Intelligence Artificielle</h3>
+            <p><strong>Domaines d'expertise :</strong></p>
+            <ul>
+                <li>Machine Learning avec Python/TensorFlow</li>
+                <li>Traitement du langage naturel (NLP)</li>
+                <li>Computer Vision</li>
+                <li>Chatbots et assistants virtuels</li>
+                <li>Analyse de données et prédictions</li>
+            </ul>
+            <p><strong>Projets :</strong> Développement de modèles prédictifs, systèmes de recommandation et automatisation intelligente.</p>
+        </div>
+    </div>
+
+    <div id="devops-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('devops')">&times;</span>
+            <h3>DevOps & Cloud</h3>
+            <p><strong>Technologies :</strong></p>
+            <ul>
+                <li>Docker et Kubernetes</li>
+                <li>AWS, Google Cloud Platform</li>
+                <li>CI/CD avec GitHub Actions</li>
+                <li>Infrastructure as Code (Terraform)</li>
+                <li>Monitoring et logging</li>
+            </ul>
+            <p><strong>Apprentissage :</strong> En cours de formation sur les meilleures pratiques DevOps pour optimiser le déploiement et la maintenance d'applications.</p>
+        </div>
+    </div>
+
+    <div id="mobile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mobile')">&times;</span>
+            <h3>Développement Mobile</h3>
+            <p><strong>Plateformes :</strong></p>
+            <ul>
+                <li>React Native pour iOS/Android</li>
+                <li>Flutter avec Dart</li>
+                <li>Applications web progressives (PWA)</li>
+                <li>Intégration d'APIs natives</li>
+                <li>Publication sur App Store/Google Play</li>
+            </ul>
+            <p><strong>Focus :</strong> Création d'applications mobiles performantes avec une expérience utilisateur native.</p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
