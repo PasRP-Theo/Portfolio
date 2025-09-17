@@ -54,6 +54,7 @@
         </section>
 
         <!-- Activities Section -->
+        <!-- Activities Section -->
         <section id="activities" class="section">
             <div class="about-content">
                 <h2>Mes Activités</h2>
@@ -61,48 +62,57 @@
                     Découvrez les différents domaines dans lesquels j'évolue et les activités 
                     qui rythment mon quotidien professionnel et personnel.
                 </p>
-            </div>
-            
-            <!-- Tableau des activités -->
-            <div class="activities-table-container">
-                <table class="activities-table">
-                    <thead>
-                        <tr>
-                            <th>Activité</th>
-                            <th>Description</th>
-                            <th>Niveau</th>
-                            <th>Action</th>
-                            <th>Photos</th>
-                            <th>heures</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="activity-name">Journée découverte artemys belgium</td>
-                            <td class="activity-description">Découverte de toutes leurs activitées</td>
-                            <td><span class="activity-level level-beginner">Débutant</span></td>
-                            <td><button class="detail-button" onclick="openModal('web-dev')">Voir détails</button></td>
-                            <td><button class="detail-button" onclick="openPhotoModal(['css/img/artemys/20231001_174115.jpg','css/img/artemys/20231001_160403.jpg','css/img/artemys/20231001_160555.jpg','css/img/artemys/20231001_160600.jpg','css/img/artemys/20231001_173323.jpg','css/img/artemys/20231001_173834.jpg','css/img/artemys/20231001_174314.jpg','css/img/artemys/20231001_174319.jpg'])">Voir photos</button></td>
-                            <td><span class="activity-level level-beginner">2 h</span></td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">Design UX/UI</td>
-                            <td class="activity-description">Conception d'interfaces intuitives et esthétiques, recherche utilisateur</td>
-                            <td><span class="activity-level level-intermediate">Intermédiaire</span></td>
-                            <td><button class="detail-button" onclick="openModal('ux-ui')">Voir détails</button></td>
-                            <td><button class="detail-button" onclick="openPhotoModal(['css/img/ui1.jpg','css/img/ui2.jpg'])">Voir photos</button></td>
-                        </tr>
-                        <tr>
-                            <td class="activity-name">Développement Web</td>
-                            <td class="activity-description">Création d'applications web modernes et responsives avec les dernières technologies</td>
-                            <td><span class="activity-level level-expert">Expert</span></td>
-                            <td><button class="detail-button" onclick="openModal('web-dev')">Voir détails</button></td>
-                            <td><button class="detail-button" onclick="openPhotoModal(['css/img/Nettoyage_PC/20240907_101449.jpg','css/img/Nettoyage_PC/20240907_102622.jpg'])">Voir photos</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
+                <!-- Tableau des activités déplacé ici -->
+                <div class="activities-table-container">
+                    <table class="activities-table">
+                        <thead>
+                            <tr>
+                                <th>Activité</th>
+                                <th>Description</th>
+                                <th>Niveau</th>
+                                <th>Action</th>
+                                <th>Photos</th>
+                                <th>heures</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="activity-name">Journée découverte artemys belgium</td>
+                                <td class="activity-description">Découverte de toutes leurs activitées</td>
+                                <td><span class="activity-level level-beginner">Débutant</span></td>
+                                <td><button class="detail-button" onclick="openModal('web-dev')">Voir détails</button></td>
+                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/artemys/20231001_174115.jpg','css/img/artemys/20231001_160403.jpg','css/img/artemys/20231001_160555.jpg','css/img/artemys/20231001_160600.jpg','css/img/artemys/20231001_173323.jpg','css/img/artemys/20231001_173834.jpg','css/img/artemys/20231001_174314.jpg','css/img/artemys/20231001_174319.jpg'])">Voir photos</button></td>
+                                <td><span class="activity-level level-beginner">2 h</span></td>
+                            </tr>
+                            <tr>
+                                <td class="activity-name">Design UX/UI</td>
+                                <td class="activity-description">Conception d'interfaces intuitives et esthétiques, recherche utilisateur</td>
+                                <td><span class="activity-level level-intermediate">Intermédiaire</span></td>
+                                <td><button class="detail-button" onclick="openModal('ux-ui')">Voir détails</button></td>
+                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/ui1.jpg','css/img/ui2.jpg'])">Voir photos</button></td>
+                                <td><span class="activity-level level-intermediate">5 h</span></td>
+                            </tr>
+                            <tr>
+                                <td class="activity-name">Développement Web</td>
+                                <td class="activity-description">Création d'applications web modernes et responsives avec les dernières technologies</td>
+                                <td><span class="activity-level level-expert">Expert</span></td>
+                                <td><button class="detail-button" onclick="openModal('web-dev')">Voir détails</button></td>
+                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/Nettoyage_PC/20240907_101449.jpg','css/img/Nettoyage_PC/20240907_102622.jpg'])">Voir photos</button></td>
+                                <td><span class="activity-level level-expert">10 h</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Modal photos (reste identique) -->
+            <div id="photoModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closePhotoModal()">&times;</span>
+                    <div id="photoGallery" style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;"></div>
+                </div>
+            </div>
+        </section>
             <div id="photoModal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closePhotoModal()">&times;</span>
