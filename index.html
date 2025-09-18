@@ -54,7 +54,6 @@
         </section>
 
         <!-- Activities Section -->
-        <!-- Activities Section -->
         <section id="activities" class="section">
             <div class="about-content">
                 <h2>Mes Activités</h2>
@@ -62,8 +61,6 @@
                     Découvrez les différents domaines dans lesquels j'évolue et les activités 
                     qui rythment mon quotidien professionnel et personnel.
                 </p>
-
-                <!-- Tableau des activités déplacé ici -->
                 <div class="activities-table-container">
                     <table class="activities-table">
                         <thead>
@@ -83,15 +80,15 @@
                                 <td><span class="activity-level level-beginner">Débutant</span></td>
                                 <td><button class="detail-button" onclick="openModal('web-dev')">Voir détails</button></td>
                                 <td><button class="detail-button" onclick="openPhotoModal(['css/img/artemys/20231001_174115.jpg','css/img/artemys/20231001_160403.jpg','css/img/artemys/20231001_160555.jpg','css/img/artemys/20231001_160600.jpg','css/img/artemys/20231001_173323.jpg','css/img/artemys/20231001_173834.jpg','css/img/artemys/20231001_174314.jpg','css/img/artemys/20231001_174319.jpg'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">2 h</span></td>
+                                <td><span class="activity-level level-beginner">4 h</span></td>
                             </tr>
                             <tr>
-                                <td class="activity-name">Design UX/UI</td>
-                                <td class="activity-description">Conception d'interfaces intuitives et esthétiques, recherche utilisateur</td>
-                                <td><span class="activity-level level-intermediate">Intermédiaire</span></td>
-                                <td><button class="detail-button" onclick="openModal('ux-ui')">Voir détails</button></td>
+                                <td class="activity-name">Développement d'un serveur Gta 5 RP</td>
+                                <td class="activity-description">Conception de script pour le bon fonctionnement du serveur</td>
+                                <td><span class="activity-level level-expert">Expert</span></td>
+                                <td><button class="detail-button" onclick="openModal('GTA-RP')">Voir détails</button></td>
                                 <td><button class="detail-button" onclick="openPhotoModal(['css/img/ui1.jpg','css/img/ui2.jpg'])">Voir photos</button></td>
-                                <td><span class="activity-level level-intermediate">5 h</span></td>
+                                <td><span class="activity-level level-intermediate">10 h</span></td>
                             </tr>
                             <tr>
                                 <td class="activity-name">Développement Web</td>
@@ -105,7 +102,7 @@
                     </table>
                 </div>
             </div>
-            <!-- Modal photos (reste identique) -->
+            <!-- Modal photos -->
             <div id="photoModal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closePhotoModal()">&times;</span>
@@ -141,7 +138,7 @@
                 <h2>Contact</h2>
                 <p>
                     Vous avez un projet en tête ou souhaitez simplement échanger ? 
-                    N'hésitez pas à me contacter, je serais ravi(e) de discuter avec vous.
+                    N'hésitez pas à me contacter, je serais ravi de discuter avec vous.
                 </p>
                 <p style="margin-top: 40px; font-style: italic; color: #888;">
                     Adresse mail : theomertens12345@gmail.com
@@ -176,22 +173,22 @@
         </div>
     </div>
 
-    <div id="ux-ui-modal" class="modal">
+    <div id="GTA-RP-modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('ux-ui')">&times;</span>
-            <h3>Design UX/UI</h3>
+            <span class="close" onclick="closeModal('GTA-RP')">&times;</span>
+            <h3>Développement d'un serveur GTA RP</h3>
             <p><strong>Compétences :</strong></p>
             <ul>
-                <li>Recherche utilisateur et personas</li>
-                <li>Wireframing et prototypage</li>
-                <li>Design systems et guidelines</li>
-                <li>Tests d'utilisabilité</li>
-                <li>Figma, Adobe Creative Suite</li>
+                <li>Création et configuration de serveurs FiveM</li>
+                <li>Scripting Lua et JavaScript pour le gameplay</li>
+                <li>Gestion des bases de données MySQL pour les joueurs</li>
+                <li>Développement de systèmes RP : métiers, économie, quêtes</li>
+                <li>Tests, optimisation et débogage des fonctionnalités</li>
             </ul>
-            <p><strong>Philosophie :</strong> Créer des interfaces qui allient beauté et fonctionnalité, en plaçant l'utilisateur au centre du processus de conception.</p>
+            <p><strong>Philosophie :</strong> Offrir une expérience immersive et fluide, où chaque joueur peut évoluer dans un univers cohérent et interactif, tout en respectant l’équilibre et la stabilité du serveur.</p>
         </div>
     </div>
-
+    
     <div id="personal-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('personal')">&times;</span>
