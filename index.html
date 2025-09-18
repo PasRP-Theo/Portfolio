@@ -98,6 +98,22 @@
                                 <td><button class="detail-button" onclick="openPhotoModal(['css/img/Nettoyage_PC/20240907_101449.jpg','css/img/Nettoyage_PC/20240907_102622.jpg'])">Voir photos</button></td>
                                 <td><span class="activity-level level-expert">10 h</span></td>
                             </tr>
+                            <tr>
+                                <td class="activity-name">Formation openclassroom</td>
+                                <td class="activity-description">Formation pour le language Javascript</td>
+                                <td><span class="activity-level level-beginner">Débutant</span></td>
+                                <td><button class="detail-button" onclick="openModal('openclassroomJS')">Voir détails</button></td>
+                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/Openclassroom_js/1.png','css/img/Openclassroom_js/2.png'])">Voir photos</button></td>
+                                <td><span class="activity-level level-beginner">10 h</span></td>
+                            </tr>
+                            <tr>
+                                <td class="activity-name">Formation openclassroom sur l'IA</td>
+                                <td class="activity-description">Formation sur l'IA</td>
+                                <td><span class="activity-level level-beginner">Débutant</span></td>
+                                <td><button class="detail-button" onclick="openModal('openclassroomIA')">Voir détails</button></td>
+                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/Openclassroom_ia/1.png','css/img/Openclassroom_ia/2.png'])">Voir photos</button></td>
+                                <td><span class="activity-level level-beginner">6 h</span></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -188,7 +204,7 @@
             <p><strong>Philosophie :</strong> Offrir une expérience immersive et fluide, où chaque joueur peut évoluer dans un univers cohérent et interactif, tout en respectant l’équilibre et la stabilité du serveur.</p>
         </div>
     </div>
-    
+
     <div id="personal-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('personal')">&times;</span>
@@ -203,52 +219,30 @@
             <p><strong>Motivation :</strong> Expérimenter avec de nouvelles technologies et créer des solutions innovantes pour des problèmes du quotidien.</p>
         </div>
     </div>
-
-    <div id="ai-modal" class="modal">
+    <div id="openclassroomJS-modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('ai')">&times;</span>
-            <h3>Intelligence Artificielle</h3>
-            <p><strong>Domaines d'expertise :</strong></p>
+            <span class="close" onclick="closeModal('openclassroomJS')">&times;</span>
+            <h3>Formation JavaScript</h3>
+            <p><strong>Objectifs pédagogiques :</strong></p>
             <ul>
-                <li>Machine Learning avec Python/TensorFlow</li>
-                <li>Traitement du langage naturel (NLP)</li>
-                <li>Computer Vision</li>
-                <li>Chatbots et assistants virtuels</li>
-                <li>Analyse de données et prédictions</li>
+                <li>Manipuler des données avec JavaScript</li>
+                <li>Écrire un fichier JavaScript</li>
+                <li>Faire interagir JavaScript avec une page web</li>
+                <li>Créer un formulaire de saisie de données</li>
             </ul>
-            <p><strong>Projets :</strong> Développement de modèles prédictifs, systèmes de recommandation et automatisation intelligente.</p>
         </div>
     </div>
-
-    <div id="devops-modal" class="modal">
+        <div id="openclassroomIA-modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('devops')">&times;</span>
-            <h3>DevOps & Cloud</h3>
-            <p><strong>Technologies :</strong></p>
+            <span class="close" onclick="closeModal('openclassroomIA')">&times;</span>
+            <h3>Formation sur l'IA</h3>
+            <p><strong>Objectifs pédagogiques :</strong></p>
             <ul>
-                <li>Docker et Kubernetes</li>
-                <li>AWS, Google Cloud Platform</li>
-                <li>CI/CD avec GitHub Actions</li>
-                <li>Infrastructure as Code (Terraform)</li>
-                <li>Monitoring et logging</li>
+                <li>Manipuler des données avec JavaScript</li>
+                <li>Écrire un fichier JavaScript</li>
+                <li>Faire interagir JavaScript avec une page web</li>
+                <li>Créer un formulaire de saisie de données</li>
             </ul>
-            <p><strong>Apprentissage :</strong> En cours de formation sur les meilleures pratiques DevOps pour optimiser le déploiement et la maintenance d'applications.</p>
-        </div>
-    </div>
-
-    <div id="mobile-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('mobile')">&times;</span>
-            <h3>Développement Mobile</h3>
-            <p><strong>Plateformes :</strong></p>
-            <ul>
-                <li>React Native pour iOS/Android</li>
-                <li>Flutter avec Dart</li>
-                <li>Applications web progressives (PWA)</li>
-                <li>Intégration d'APIs natives</li>
-                <li>Publication sur App Store/Google Play</li>
-            </ul>
-            <p><strong>Focus :</strong> Création d'applications mobiles performantes avec une expérience utilisateur native.</p>
         </div>
     </div>
 
