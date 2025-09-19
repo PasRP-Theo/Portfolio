@@ -214,7 +214,7 @@ window.addEventListener("scroll", () => {
     if (heroOpacity > 1) heroOpacity = 1;
 
     // Opacité pour competences
-    let competencesOpacity = 0.2;
+    let competencesOpacity = 1;
     if(scrollY > competencesOffset) {
         competencesOpacity = 0.2 + (scrollY - competencesOffset) / fadePoint;
     }
@@ -227,5 +227,5 @@ window.addEventListener("scroll", () => {
 
 // Initialisation
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".about-content").style.opacity = "0.2";
+    document.querySelector(".about-content").style.opacity = "1";
 });
