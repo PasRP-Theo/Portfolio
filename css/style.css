@@ -356,6 +356,17 @@ body {
     }
 }
 
+.hero, .about-content {
+  transition: opacity 0.2s linear;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(100px);
+  pointer-events: none;
+}
+
+
 .close {
     position: absolute;
     right: 20px;
@@ -451,4 +462,87 @@ body {
     .tech-tags {
         justify-content: center;
     }
+}
+
+
+/* Skills section - harmonisée avec about-content */
+.skills-content {
+    background: rgba(255, 255, 255, 0.95); /* même style que about */
+    padding: 60px;
+    border-radius: 20px;
+    margin-top: 80px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    text-align: center; /* comme about */
+}
+
+.skills-content h2 {
+    font-size: 2.5rem;
+    color: #00BFFF; /* bleu identique à about-content h2 */
+    margin-bottom: 40px;
+}
+
+.skills-category {
+    margin-bottom: 40px;
+}
+
+.skills-category h3 {
+    font-size: 1.5rem;
+    color: #555; /* gris moyen comme les paragraphes de about */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center; /* centré pour l’équilibre visuel */
+    margin-bottom: 30px;
+}
+
+.skill-tag {
+    background: #f5faff; /* léger bleu clair au lieu de gris pur */
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    transition: all 0.3s ease;
+    cursor: default;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.skill-tag:hover {
+    background: linear-gradient(45deg, #87CEFA, #00BFFF);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 191, 255, 0.4);
+    border-color: rgba(135, 206, 250, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skills-content {
+        padding: 40px 20px;
+    }
+
+    .skills-content h2 {
+        font-size: 2rem;
+    }
+
+    .skills-category h3 {
+        font-size: 1.3rem;
+    }
+
+    .skill-tag {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+/* Transition douce (déjà utilisée sur hero & about) */
+.hero, .about-content, .skills-content {
+    transition: opacity 0.3s ease-in-out;
 }

@@ -192,3 +192,40 @@ function closePhotoModal() {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
+window.addEventListener("scroll", () => {
+    const hero = document.querySelector(".hero");
+    const competences = document.querySelector(".about-content");
+
+    const scrollY = window.scrollY;
+
+    // Seuils
+    const heroStartFade = 450;      // scrollY à partir duquel le hero commence à disparaître
+    const heroFadeRange = 300;      // distance sur laquelle le hero disparaît complètement
+    const competencesOffset = 500;  // scrollY à partir duquel les compétences commencent à apparaître
+    const fadePoint = 400;          // distance de fondu pour les compétences
+
+    // Opacité pour hero
+    let heroOpacity = 1;
+    if(scrollY > heroStartFade) {
+        heroOpacity = 1 - (scrollY - heroStartFade) / heroFadeRange;
+    }
+    if (heroOpacity < 0) heroOpacity = 0;
+    if (heroOpacity > 1) heroOpacity = 1;
+
+    // Opacité pour competences
+    let competencesOpacity = 0.2;
+    if(scrollY > competencesOffset) {
+        competencesOpacity = 0.2 + (scrollY - competencesOffset) / fadePoint;
+    }
+    if (competencesOpacity > 1) competencesOpacity = 1;
+
+    // Application
+    hero.style.opacity = heroOpacity;
+    competences.style.opacity = competencesOpacity;
+});
+
+// Initialisation
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".about-content").style.opacity = "0.2";
+});
