@@ -140,15 +140,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Add parallax effect to background
+// Add parallax effect to background (only on home page) - optimized
+let ticking = false;
+
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.hero');
-    
-    parallaxElements.forEach(element => {
-        const speed = 0.5;
-        element.style.transform = `translateY(${scrolled * speed}px)`;
-    });
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const homeSection = document.getElementById('home');
+            if (!homeSection || !homeSection.classList.contains('active')) {
+                ticking = false;
+                return;
+            }
+            
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('#home .hero');
+            
+            if (hero) {
+                const speed = 0.3;
+                hero.style.transform = `translate3d(0, ${scrolled * speed}px, 0)`;
+            }
+            
+            ticking = false;
+        });
+        
+        ticking = true;
+    }
 });
 
 function openPhotoModal(photos) {
@@ -193,39 +209,69 @@ function closePhotoModal() {
     document.body.style.overflow = 'auto';
 }
 
+// Optimized scroll effects for home page
+let fadeAnimationFrame = null;
+
 window.addEventListener("scroll", () => {
-    const hero = document.querySelector(".hero");
-    const competences = document.querySelector(".about-content");
-
-    const scrollY = window.scrollY;
-
-    // Seuils
-    const heroStartFade = 450;      // scrollY à partir duquel le hero commence à disparaître
-    const heroFadeRange = 300;      // distance sur laquelle le hero disparaît complètement
-    const competencesOffset = 500;  // scrollY à partir duquel les compétences commencent à apparaître
-    const fadePoint = 400;          // distance de fondu pour les compétences
-
-    // Opacité pour hero
-    let heroOpacity = 1;
-    if(scrollY > heroStartFade) {
-        heroOpacity = 1 - (scrollY - heroStartFade) / heroFadeRange;
+    const homeSection = document.getElementById('home');
+    if (!homeSection || !homeSection.classList.contains('active')) {
+        return;
     }
-    if (heroOpacity < 0) heroOpacity = 0;
-    if (heroOpacity > 1) heroOpacity = 1;
 
-    // Opacité pour competences
-    let competencesOpacity = 1;
-    if(scrollY > competencesOffset) {
-        competencesOpacity = 0.2 + (scrollY - competencesOffset) / fadePoint;
+    if (fadeAnimationFrame) {
+        return;
     }
-    if (competencesOpacity > 1) competencesOpacity = 1;
 
-    // Application
-    hero.style.opacity = heroOpacity;
-    competences.style.opacity = competencesOpacity;
+    fadeAnimationFrame = requestAnimationFrame(() => {
+        const hero = document.querySelector("#home .hero");
+        const competences = document.querySelector("#home .skills-content");
+        const scrollY = window.scrollY;
+
+        // Seuils ajustés pour plus de fluidité
+        const heroStartFade = 400;
+        const heroFadeRange = 350;
+        const competencesOffset = 450;
+        const fadePoint = 450;
+
+        // Opacité pour hero
+        let heroOpacity = 1;
+        if(scrollY > heroStartFade) {
+            heroOpacity = 1 - (scrollY - heroStartFade) / heroFadeRange;
+        }
+        heroOpacity = Math.max(0, Math.min(1, heroOpacity));
+
+        // Opacité pour competences
+        let competencesOpacity = 1;
+        if(scrollY > competencesOffset) {
+            competencesOpacity = 0.3 + (scrollY - competencesOffset) / fadePoint;
+        }
+        competencesOpacity = Math.min(1, competencesOpacity);
+
+        // Application
+        if (hero) hero.style.opacity = heroOpacity;
+        if (competences) competences.style.opacity = competencesOpacity;
+
+        fadeAnimationFrame = null;
+    });
 });
 
 // Initialisation
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".about-content").style.opacity = "1";
+    const homeCompetences = document.querySelector("#home .skills-content");
+    if (homeCompetences) {
+        homeCompetences.style.opacity = "1";
+        homeCompetences.style.willChange = "opacity";
+    }
+    
+    // S'assurer que les autres sections ont une opacité normale
+    const activitiesContent = document.querySelector("#activities .about-content");
+    if (activitiesContent) {
+        activitiesContent.style.opacity = "1";
+    }
+    
+    // Optimisation pour le hero
+    const hero = document.querySelector("#home .hero");
+    if (hero) {
+        hero.style.willChange = "transform, opacity";
+    }
 });
