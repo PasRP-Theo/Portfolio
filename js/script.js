@@ -1,4 +1,4 @@
-// Navigation functionality
+
 const navLinks = document.querySelectorAll('.nav-link, .logo');
 const sections = document.querySelectorAll('.section');
 const hamburger = document.querySelector('.hamburger');
@@ -11,15 +11,12 @@ navLinks.forEach(link => {
         
         const targetSection = link.getAttribute('data-section');
         
-        // Remove active class from all links and sections
         navLinks.forEach(l => l.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
         
-        // Add active class to clicked link and corresponding section
         link.classList.add('active');
         document.getElementById(targetSection).classList.add('active');
         
-        // Close mobile menu if open
         navMenu.classList.remove('active');
     });
 });
@@ -32,11 +29,9 @@ if (ctaButton) {
         
         const targetSection = ctaButton.getAttribute('data-section');
         
-        // Remove active class from all
         navLinks.forEach(l => l.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
         
-        // Activate target section and corresponding nav link
         document.getElementById(targetSection).classList.add('active');
         document.querySelector(`[data-section="${targetSection}"]`).classList.add('active');
     });
@@ -106,7 +101,6 @@ window.addEventListener('scroll', () => {
 
 // Enhanced animations and effects
 document.addEventListener('DOMContentLoaded', () => {
-    // Animate table rows on hover
     const tableRows = document.querySelectorAll('.activities-table tbody tr');
     
     tableRows.forEach(row => {
@@ -121,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Add typing effect to hero title
     const heroTitle = document.querySelector('.hero h1');
     if (heroTitle) {
         const originalText = heroTitle.textContent;
@@ -169,7 +162,7 @@ window.addEventListener('scroll', () => {
 
 function openPhotoModal(photos) {
     const gallery = document.getElementById('photoGallery');
-    gallery.innerHTML = ''; // reset
+    gallery.innerHTML = '';
 
     photos.forEach(src => {
         const img = document.createElement('img');
@@ -200,7 +193,7 @@ function openLightbox(src) {
     });
 
     document.body.appendChild(lightbox);
-    setTimeout(() => lightbox.classList.add('show'), 10); // animation fade-in
+    setTimeout(() => lightbox.classList.add('show'), 10);
 }
 
 function closePhotoModal() {

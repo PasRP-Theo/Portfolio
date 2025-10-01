@@ -317,6 +317,35 @@ body::before {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+/* About section */
+.about-content-contact {
+    background: rgba(10, 25, 41, 0.95);
+    padding: 60px;
+    border-radius: 30px;
+    margin-top: 80px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-content-contact h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
+
+.about-content-contact p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
 /* Activities table */
 .activities-table-container {
     background: rgba(10, 25, 41, 0.95);
