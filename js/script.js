@@ -21,7 +21,6 @@ navLinks.forEach(link => {
     });
 });
 
-// Handle CTA button click
 const ctaButton = document.querySelector('.cta-button');
 if (ctaButton) {
     ctaButton.addEventListener('click', (e) => {
@@ -42,7 +41,6 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Modal functionality
 function openModal(activityId) {
     const modal = document.getElementById(activityId + '-modal');
     if (modal) {
@@ -59,7 +57,6 @@ function closeModal(activityId) {
     }
 }
 
-// Close modal when clicking outside
 window.addEventListener('click', (event) => {
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => {
@@ -70,7 +67,6 @@ window.addEventListener('click', (event) => {
     });
 });
 
-// Close modal with Escape key
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         const modals = document.querySelectorAll('.modal');
@@ -83,7 +79,6 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Smooth scrolling effect for navbar
 let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
 
@@ -99,7 +94,6 @@ window.addEventListener('scroll', () => {
     lastScrollTop = scrollTop;
 });
 
-// Enhanced animations and effects
 document.addEventListener('DOMContentLoaded', () => {
     const tableRows = document.querySelectorAll('.activities-table tbody tr');
     
@@ -133,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Add parallax effect to background (only on home page) - optimized
 let ticking = false;
 
 window.addEventListener('scroll', () => {
@@ -171,7 +164,7 @@ function openPhotoModal(photos) {
         img.style.borderRadius = '10px';
         img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
 
-        // Au clic, ouvrir lightbox
+        // clic, ouvrir lightbox
         img.addEventListener('click', () => openLightbox(src));
 
         gallery.appendChild(img);
@@ -186,7 +179,6 @@ function openLightbox(src) {
     lightbox.classList.add('lightbox');
     lightbox.innerHTML = `<img src="${src}">`;
 
-    // fermer au clic
     lightbox.addEventListener('click', () => {
         lightbox.classList.remove('show');
         setTimeout(() => lightbox.remove(), 300);
@@ -220,27 +212,22 @@ window.addEventListener("scroll", () => {
         const competences = document.querySelector("#home .skills-content");
         const scrollY = window.scrollY;
 
-        // Seuils ajustés pour plus de fluidité
         const heroStartFade = 400;
         const heroFadeRange = 350;
         const competencesOffset = 450;
         const fadePoint = 450;
 
-        // Opacité pour hero
         let heroOpacity = 1;
         if(scrollY > heroStartFade) {
             heroOpacity = 1 - (scrollY - heroStartFade) / heroFadeRange;
         }
         heroOpacity = Math.max(0, Math.min(1, heroOpacity));
 
-        // Opacité pour competences
         let competencesOpacity = 1;
         if(scrollY > competencesOffset) {
             competencesOpacity = 0.3 + (scrollY - competencesOffset) / fadePoint;
         }
         competencesOpacity = Math.min(1, competencesOpacity);
-
-        // Application
         if (hero) hero.style.opacity = heroOpacity;
         if (competences) competences.style.opacity = competencesOpacity;
 
@@ -256,13 +243,13 @@ document.addEventListener("DOMContentLoaded", () => {
         homeCompetences.style.willChange = "opacity";
     }
     
-    // S'assurer que les autres sections ont une opacité normale
+    // assure que les autres sections ont une opacité normale
     const activitiesContent = document.querySelector("#activities .about-content");
     if (activitiesContent) {
         activitiesContent.style.opacity = "1";
     }
     
-    // Optimisation pour le hero
+    // Opti pour le hero
     const hero = document.querySelector("#home .hero");
     if (hero) {
         hero.style.willChange = "transform, opacity";
