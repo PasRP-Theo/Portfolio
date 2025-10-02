@@ -160,6 +160,7 @@ function openPhotoModal(photos) {
     photos.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
+        img.loading = "lazy";
         img.style.maxWidth = '150px';
         img.style.borderRadius = '10px';
         img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
