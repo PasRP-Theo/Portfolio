@@ -158,10 +158,24 @@
                                 <td><button class="detail-button" onclick="openPhotoModal(['css/img/Openclassroom_ia/1.png','css/img/Openclassroom_ia/2.png'])">Voir photos</button></td>
                                 <td><span class="activity-level level-beginner">6 h</span></td>
                             </tr>
+                            <tr>
+                                <td class="activity-name">Projet d'intégration</td>
+                                <td class="activity-description">Projet d'intégration</td>
+                                <td><span class="activity-level level-beginner">Débutant</span></td>
+                                <td><button class="detail-button" onclick="openModal('projetInt')">Voir détails</button></td>
+                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/Openclassroom_ia/1.png','css/img/Openclassroom_ia/2.png'])">Voir photos</button></td>
+                                <td><span class="activity-level level-beginner">10 h</span></td>
+                            </tr>
                         </tbody>
                     </table>
+
+                    <!-- ✅ Total heures ajouté ici -->
+                    <div class="total-hours" style="text-align:center; margin-top:20px; font-weight:bold; font-size:1.2em;">
+                        Heures totales : <span id="totalHours">0 h</span>
+                    </div>
                 </div>
             </div>
+
             <!-- Modal photos -->
             <div id="photoModal" class="modal">
                 <div class="modal-content">
@@ -170,13 +184,7 @@
                 </div>
             </div>
         </section>
-            <div id="photoModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closePhotoModal()">&times;</span>
-                    <div id="photoGallery" style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;"></div>
-                </div>
-            </div>
-        </section>
+
 
         <!-- Projects Section -->
         <section id="projects" class="section">
@@ -280,6 +288,20 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('openclassroomIA')">&times;</span>
             <h3>Formation sur l'IA</h3>
+            <p><strong>Objectifs pédagogiques :</strong></p>
+            <ul>
+                <li>Manipuler des données avec JavaScript</li>
+                <li>Écrire un fichier JavaScript</li>
+                <li>Faire interagir JavaScript avec une page web</li>
+                <li>Créer un formulaire de saisie de données</li>
+            </ul>
+        </div>
+    </div>
+        </div>
+        <div id="projetInt-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('projetInt')">&times;</span>
+            <h3>Projet d'intégration</h3>
             <p><strong>Objectifs pédagogiques :</strong></p>
             <ul>
                 <li>Manipuler des données avec JavaScript</li>

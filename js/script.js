@@ -256,3 +256,17 @@ document.addEventListener("DOMContentLoaded", () => {
         hero.style.willChange = "transform, opacity";
     }
 });
+
+// === Calcul automatique des heures totales ===
+document.addEventListener("DOMContentLoaded", () => {
+    const hourCells = document.querySelectorAll(".activities-table tbody td:last-child span");
+    let total = 0;
+
+    hourCells.forEach(cell => {
+        const match = cell.textContent.match(/(\d+)\s*h/);
+        if (match) total += parseInt(match[1]);
+    });
+
+    const totalHours = document.getElementById("totalHours");
+    if (totalHours) totalHours.textContent = total + " h";
+});
