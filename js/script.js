@@ -213,8 +213,8 @@ window.addEventListener("scroll", () => {
         const competences = document.querySelector("#home .skills-content");
         const scrollY = window.scrollY;
 
-        const heroStartFade = 400;
-        const heroFadeRange = 350;
+        const heroStartFade = 650;
+        const heroFadeRange = 450;
         const competencesOffset = 450;
         const fadePoint = 450;
 
