@@ -1,22 +1,22 @@
-
 const navLinks = document.querySelectorAll('.nav-link, .logo');
 const sections = document.querySelectorAll('.section');
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-// Handle navigation clicks
+// === Navigation entre sections ===
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
         const targetSection = link.getAttribute('data-section');
-        
+        if (!targetSection) return;
+
         navLinks.forEach(l => l.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
-        
+
         link.classList.add('active');
-        document.getElementById(targetSection).classList.add('active');
-        
+        document.getElementById(targetSection)?.classList.add('active');
+
         navMenu.classList.remove('active');
     });
 });
@@ -25,27 +25,39 @@ const ctaButton = document.querySelector('.cta-button');
 if (ctaButton) {
     ctaButton.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
         const targetSection = ctaButton.getAttribute('data-section');
-        
+        if (!targetSection) return;
+
         navLinks.forEach(l => l.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
-        
-        document.getElementById(targetSection).classList.add('active');
-        document.querySelector(`[data-section="${targetSection}"]`).classList.add('active');
+
+        document.getElementById(targetSection)?.classList.add('active');
+        document.querySelector(`[data-section="${targetSection}"]`)?.classList.add('active');
     });
 }
 
-// Mobile menu toggle
+// === Menu mobile ===
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
+
+// === Gestion des modals ===
+function disableScroll() {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.height = '100%';
+}
+
+function enableScroll() {
+    document.documentElement.style.overflow = '';
+    document.body.style.height = '';
+}
 
 function openModal(activityId) {
     const modal = document.getElementById(activityId + '-modal');
     if (modal) {
         modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        disableScroll();
     }
 }
 
@@ -53,67 +65,65 @@ function closeModal(activityId) {
     const modal = document.getElementById(activityId + '-modal');
     if (modal) {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        enableScroll();
     }
 }
 
 window.addEventListener('click', (event) => {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
+    document.querySelectorAll('.modal').forEach(modal => {
         if (event.target === modal) {
             modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            enableScroll();
         }
     });
 });
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
-        const modals = document.querySelectorAll('.modal');
-        modals.forEach(modal => {
+        document.querySelectorAll('.modal').forEach(modal => {
             if (modal.style.display === 'block') {
                 modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                enableScroll();
             }
         });
     }
 });
 
+// === Masquage de la navbar au scroll ===
 let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
     if (scrollTop > lastScrollTop && scrollTop > 100) {
         navbar.style.transform = 'translateY(-100%)';
     } else {
         navbar.style.transform = 'translateY(0)';
     }
-    
+
     lastScrollTop = scrollTop;
 });
 
+// === Effets sur les lignes du tableau ===
 document.addEventListener('DOMContentLoaded', () => {
     const tableRows = document.querySelectorAll('.activities-table tbody tr');
-    
     tableRows.forEach(row => {
         row.addEventListener('mouseenter', () => {
             row.style.transform = 'scale(1.02)';
             row.style.boxShadow = '0 10px 30px rgba(74, 105, 189, 0.1)';
         });
-        
         row.addEventListener('mouseleave', () => {
             row.style.transform = 'scale(1)';
             row.style.boxShadow = 'none';
         });
     });
 
+    // === Effet machine à écrire sur le hero ===
     const heroTitle = document.querySelector('.hero h1');
     if (heroTitle) {
         const originalText = heroTitle.textContent;
         heroTitle.textContent = '';
-        
         let i = 0;
         const typeWriter = () => {
             if (i < originalText.length) {
@@ -122,14 +132,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(typeWriter, 100);
             }
         };
-        
         setTimeout(typeWriter, 500);
     }
 });
 
+// === Parallaxe optimisée (désactivée sur mobile) ===
 let ticking = false;
 
 window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) return; // désactive sur mobile
+
     if (!ticking) {
         window.requestAnimationFrame(() => {
             const homeSection = document.getElementById('home');
@@ -137,22 +149,20 @@ window.addEventListener('scroll', () => {
                 ticking = false;
                 return;
             }
-            
+
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('#home .hero');
-            
             if (hero) {
                 const speed = 0.3;
                 hero.style.transform = `translate3d(0, ${scrolled * speed}px, 0)`;
             }
-            
             ticking = false;
         });
-        
         ticking = true;
     }
 });
 
+// === Galerie photo + Lightbox ===
 function openPhotoModal(photos) {
     const gallery = document.getElementById('photoGallery');
     gallery.innerHTML = '';
@@ -160,23 +170,21 @@ function openPhotoModal(photos) {
     photos.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
-        img.loading = "lazy";
+        img.loading = 'lazy';
         img.style.maxWidth = '150px';
         img.style.borderRadius = '10px';
         img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
 
-        // clic, ouvrir lightbox
         img.addEventListener('click', () => openLightbox(src));
-
         gallery.appendChild(img);
     });
 
     document.getElementById('photoModal').style.display = 'block';
-    document.body.style.overflow = 'hidden'; // empêche scroll derrière
+    disableScroll();
 }
 
 function openLightbox(src) {
-    let lightbox = document.createElement('div');
+    const lightbox = document.createElement('div');
     lightbox.classList.add('lightbox');
     lightbox.innerHTML = `<img src="${src}">`;
 
@@ -192,25 +200,21 @@ function openLightbox(src) {
 function closePhotoModal() {
     const modal = document.getElementById('photoModal');
     modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    enableScroll();
 }
 
-// Optimized scroll effects for home page
+// === Effet de fade du hero & compétences ===
 let fadeAnimationFrame = null;
 
-window.addEventListener("scroll", () => {
+window.addEventListener('scroll', () => {
     const homeSection = document.getElementById('home');
-    if (!homeSection || !homeSection.classList.contains('active')) {
-        return;
-    }
+    if (!homeSection || !homeSection.classList.contains('active')) return;
 
-    if (fadeAnimationFrame) {
-        return;
-    }
+    if (fadeAnimationFrame) return;
 
     fadeAnimationFrame = requestAnimationFrame(() => {
-        const hero = document.querySelector("#home .hero");
-        const competences = document.querySelector("#home .skills-content");
+        const hero = document.querySelector('#home .hero');
+        const competences = document.querySelector('#home .skills-content');
         const scrollY = window.scrollY;
 
         const heroStartFade = 650;
@@ -219,16 +223,15 @@ window.addEventListener("scroll", () => {
         const fadePoint = 450;
 
         let heroOpacity = 1;
-        if(scrollY > heroStartFade) {
+        if (scrollY > heroStartFade)
             heroOpacity = 1 - (scrollY - heroStartFade) / heroFadeRange;
-        }
         heroOpacity = Math.max(0, Math.min(1, heroOpacity));
 
         let competencesOpacity = 1;
-        if(scrollY > competencesOffset) {
+        if (scrollY > competencesOffset)
             competencesOpacity = 0.3 + (scrollY - competencesOffset) / fadePoint;
-        }
         competencesOpacity = Math.min(1, competencesOpacity);
+
         if (hero) hero.style.opacity = heroOpacity;
         if (competences) competences.style.opacity = competencesOpacity;
 
@@ -236,30 +239,24 @@ window.addEventListener("scroll", () => {
     });
 });
 
-// Initialisation
-document.addEventListener("DOMContentLoaded", () => {
-    const homeCompetences = document.querySelector("#home .skills-content");
+// === Initialisation styles au chargement ===
+document.addEventListener('DOMContentLoaded', () => {
+    const homeCompetences = document.querySelector('#home .skills-content');
     if (homeCompetences) {
-        homeCompetences.style.opacity = "1";
-        homeCompetences.style.willChange = "opacity";
+        homeCompetences.style.opacity = '1';
+        homeCompetences.style.willChange = 'opacity';
     }
-    
-    // assure que les autres sections ont une opacité normale
-    const activitiesContent = document.querySelector("#activities .about-content");
-    if (activitiesContent) {
-        activitiesContent.style.opacity = "1";
-    }
-    
-    // Opti pour le hero
-    const hero = document.querySelector("#home .hero");
-    if (hero) {
-        hero.style.willChange = "transform, opacity";
-    }
+
+    const activitiesContent = document.querySelector('#activities .about-content');
+    if (activitiesContent) activitiesContent.style.opacity = '1';
+
+    const hero = document.querySelector('#home .hero');
+    if (hero) hero.style.willChange = 'transform, opacity';
 });
 
-// === Calcul automatique des heures totales ===
-document.addEventListener("DOMContentLoaded", () => {
-    const hourCells = document.querySelectorAll(".activities-table tbody td:last-child span");
+// === Calcul automatique du total d'heures ===
+document.addEventListener('DOMContentLoaded', () => {
+    const hourCells = document.querySelectorAll('.activities-table tbody td:last-child span');
     let total = 0;
 
     hourCells.forEach(cell => {
@@ -267,6 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (match) total += parseInt(match[1]);
     });
 
-    const totalHours = document.getElementById("totalHours");
-    if (totalHours) totalHours.textContent = total + " h";
+    const totalHours = document.getElementById('totalHours');
+    if (totalHours) totalHours.textContent = total + ' h';
 });
