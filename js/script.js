@@ -264,6 +264,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (match) total += parseInt(match[1]);
     });
 
+    // Total d'heures réel
     const totalHours = document.getElementById('totalHours');
     if (totalHours) totalHours.textContent = total + ' h';
+
+    // Total valorisé (plafonné à 60h)
+    const totalValorise = Math.min(total, 60);
+    const totalValoriseElement = document.getElementById('totalValorise');
+    if (totalValoriseElement) totalValoriseElement.textContent = totalValorise + ' h';
 });
