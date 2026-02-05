@@ -89,77 +89,42 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// === Masquage de la navbar au scroll ===
+// === Masquage de la navbar au scroll (optimisé avec throttle) ===
 let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
+let scrollTicking = false;
 
 window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-        navbar.style.transform = 'translateY(-100%)';
-    } else {
-        navbar.style.transform = 'translateY(0)';
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+
+            lastScrollTop = scrollTop;
+            scrollTicking = false;
+        });
+        scrollTicking = true;
     }
-
-    lastScrollTop = scrollTop;
 });
 
-// === Effets sur les lignes du tableau ===
+// === Effets sur les lignes du tableau (optimisés) ===
 document.addEventListener('DOMContentLoaded', () => {
     const tableRows = document.querySelectorAll('.activities-table tbody tr');
     tableRows.forEach(row => {
         row.addEventListener('mouseenter', () => {
             row.style.transform = 'scale(1.02)';
-            row.style.boxShadow = '0 10px 30px rgba(74, 105, 189, 0.1)';
+            row.style.boxShadow = '0 8px 25px rgba(74, 105, 189, 0.15)';
         });
         row.addEventListener('mouseleave', () => {
             row.style.transform = 'scale(1)';
             row.style.boxShadow = 'none';
         });
     });
-
-    // === Effet machine à écrire sur le hero ===
-    const heroTitle = document.querySelector('.hero h1');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        heroTitle.textContent = '';
-        let i = 0;
-        const typeWriter = () => {
-            if (i < originalText.length) {
-                heroTitle.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-        setTimeout(typeWriter, 500);
-    }
-});
-
-// === Parallaxe optimisée (désactivée sur mobile) ===
-let ticking = false;
-
-window.addEventListener('scroll', () => {
-    if (window.innerWidth <= 768) return; // désactive sur mobile
-
-    if (!ticking) {
-        window.requestAnimationFrame(() => {
-            const homeSection = document.getElementById('home');
-            if (!homeSection || !homeSection.classList.contains('active')) {
-                ticking = false;
-                return;
-            }
-
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('#home .hero');
-            if (hero) {
-                const speed = 0.3;
-                hero.style.transform = `translate3d(0, ${scrolled * speed}px, 0)`;
-            }
-            ticking = false;
-        });
-        ticking = true;
-    }
 });
 
 // === Galerie photo + Lightbox ===
@@ -174,6 +139,7 @@ function openPhotoModal(photos) {
         img.style.maxWidth = '150px';
         img.style.borderRadius = '10px';
         img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+        img.style.cursor = 'pointer';
 
         img.addEventListener('click', () => openLightbox(src));
         gallery.appendChild(img);
@@ -186,7 +152,7 @@ function openPhotoModal(photos) {
 function openLightbox(src) {
     const lightbox = document.createElement('div');
     lightbox.classList.add('lightbox');
-    lightbox.innerHTML = `<img src="${src}">`;
+    lightbox.innerHTML = `<img src="${src}" alt="Photo">`;
 
     lightbox.addEventListener('click', () => {
         lightbox.classList.remove('show');
@@ -203,7 +169,7 @@ function closePhotoModal() {
     enableScroll();
 }
 
-// === Effet de fade du hero & compétences ===
+// === Effet de fade optimisé (uniquement sur la page home) ===
 let fadeAnimationFrame = null;
 
 window.addEventListener('scroll', () => {
@@ -217,21 +183,27 @@ window.addEventListener('scroll', () => {
         const competences = document.querySelector('#home .skills-content');
         const scrollY = window.scrollY;
 
-        const heroStartFade = 650;
-        const heroFadeRange = 450;
-        const competencesOffset = 450;
-        const fadePoint = 450;
+        // Paramètres optimisés pour un fade plus doux
+        const heroStartFade = 400;
+        const heroFadeRange = 300;
+        const competencesOffset = 200;
+        const fadePoint = 300;
 
+        // Calcul de l'opacité du hero
         let heroOpacity = 1;
-        if (scrollY > heroStartFade)
+        if (scrollY > heroStartFade) {
             heroOpacity = 1 - (scrollY - heroStartFade) / heroFadeRange;
+        }
         heroOpacity = Math.max(0, Math.min(1, heroOpacity));
 
-        let competencesOpacity = 1;
-        if (scrollY > competencesOffset)
+        // Calcul de l'opacité des compétences
+        let competencesOpacity = 0.3;
+        if (scrollY > competencesOffset) {
             competencesOpacity = 0.3 + (scrollY - competencesOffset) / fadePoint;
+        }
         competencesOpacity = Math.min(1, competencesOpacity);
 
+        // Application des opacités
         if (hero) hero.style.opacity = heroOpacity;
         if (competences) competences.style.opacity = competencesOpacity;
 
@@ -243,15 +215,13 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const homeCompetences = document.querySelector('#home .skills-content');
     if (homeCompetences) {
-        homeCompetences.style.opacity = '1';
-        homeCompetences.style.willChange = 'opacity';
+        homeCompetences.style.opacity = '0.3';
     }
 
     const activitiesContent = document.querySelector('#activities .about-content');
-    if (activitiesContent) activitiesContent.style.opacity = '1';
-
-    const hero = document.querySelector('#home .hero');
-    if (hero) hero.style.willChange = 'transform, opacity';
+    if (activitiesContent) {
+        activitiesContent.style.opacity = '1';
+    }
 });
 
 // === Calcul automatique du total d'heures ===
