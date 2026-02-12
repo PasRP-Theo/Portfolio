@@ -490,6 +490,74 @@ body::before {
     transform: rotate(90deg) scale(1.2);
 }
 
+/* === Styles pour la galerie photo === */
+#photoModal .modal-content {
+    max-width: 850px;
+    padding: 50px 40px;
+}
+
+#photoGallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+#imageContainer {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+#currentPhoto {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease, opacity 0.15s ease;
+    opacity: 1;
+}
+
+.carousel-btn {
+    background: linear-gradient(135deg, #1976d2, #0d47a1);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.4);
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(25, 118, 210, 0.6);
+}
+
+.carousel-btn:active {
+    transform: scale(0.95);
+}
+
+#photoIndicator {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
 .modal h3 {
     color: #0d47a1;
     font-size: 2rem;

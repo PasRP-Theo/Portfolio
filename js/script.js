@@ -74,6 +74,11 @@ window.addEventListener('click', (event) => {
         if (event.target === modal) {
             modal.style.display = 'none';
             enableScroll();
+            if (modal.id === 'photoModal' && photoKeydownHandler) {
+                document.removeEventListener('keydown', photoKeydownHandler);
+                currentPhotos = [];
+                currentPhotoIndex = 0;
+            }
         }
     });
 });
@@ -128,25 +133,191 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // === Galerie photo + Lightbox ===
+let currentPhotos = [];
+let photoKeydownHandler = null;
+
 function openPhotoModal(photos) {
+    if (photos.length === 0) return;
+    
+    currentPhotos = photos.filter(src => src && src !== 'css/img/');
+    
     const gallery = document.getElementById('photoGallery');
     gallery.innerHTML = '';
-
-    photos.forEach(src => {
+    
+    // Conteneur principal avec contrôles
+    const mainContainer = document.createElement('div');
+    mainContainer.style.cssText = `
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    `;
+    
+    // Conteneur wrapper pour le carrousel avec boutons
+    const controlsWrapper = document.createElement('div');
+    controlsWrapper.style.cssText = `
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    `;
+    
+    // Bouton précédent
+    const prevBtn = document.createElement('button');
+    prevBtn.innerHTML = '‹';
+    prevBtn.className = 'carousel-btn';
+    prevBtn.style.cssText = `
+        background: linear-gradient(135deg, #1976d2, #0d47a1);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(25, 118, 210, 0.4);
+    `;
+    prevBtn.onmouseover = () => {
+        prevBtn.style.transform = 'scale(1.1)';
+        prevBtn.style.boxShadow = '0 6px 20px rgba(25, 118, 210, 0.6)';
+    };
+    prevBtn.onmouseout = () => {
+        prevBtn.style.transform = 'scale(1)';
+        prevBtn.style.boxShadow = '0 4px 15px rgba(25, 118, 210, 0.4)';
+    };
+    prevBtn.onclick = () => scrollGalleryContainer(-200);
+    
+    // Conteneur scrollable pour les images
+    const imagesContainer = document.createElement('div');
+    imagesContainer.id = 'imagesContainer';
+    imagesContainer.style.cssText = `
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 10px 0;
+        scroll-behavior: smooth;
+        width: 100%;
+        max-width: 600px;
+        max-height: 200px;
+        scrollbar-width: thin;
+        scrollbar-color: #1976d2 rgba(25, 118, 210, 0.1);
+    `;
+    
+    // Créer les images
+    currentPhotos.forEach((src, index) => {
+        const imgWrapper = document.createElement('div');
+        imgWrapper.style.cssText = `
+            flex-shrink: 0;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        `;
+        
         const img = document.createElement('img');
         img.src = src;
         img.loading = 'lazy';
-        img.style.maxWidth = '150px';
-        img.style.borderRadius = '10px';
-        img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
-        img.style.cursor = 'pointer';
-
+        img.style.cssText = `
+            height: 180px;
+            width: auto;
+            max-width: 150px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            object-fit: cover;
+        `;
+        
+        img.onmouseover = () => {
+            img.style.transform = 'scale(1.05)';
+            img.style.boxShadow = '0 8px 20px rgba(25, 118, 210, 0.4)';
+        };
+        img.onmouseout = () => {
+            img.style.transform = 'scale(1)';
+            img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+        };
+        
         img.addEventListener('click', () => openLightbox(src));
-        gallery.appendChild(img);
+        
+        imgWrapper.appendChild(img);
+        imagesContainer.appendChild(imgWrapper);
     });
-
+    
+    // Bouton suivant
+    const nextBtn = document.createElement('button');
+    nextBtn.innerHTML = '›';
+    nextBtn.className = 'carousel-btn';
+    nextBtn.style.cssText = `
+        background: linear-gradient(135deg, #1976d2, #0d47a1);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 18px;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(25, 118, 210, 0.4);
+    `;
+    nextBtn.onmouseover = () => {
+        nextBtn.style.transform = 'scale(1.1)';
+        nextBtn.style.boxShadow = '0 6px 20px rgba(25, 118, 210, 0.6)';
+    };
+    nextBtn.onmouseout = () => {
+        nextBtn.style.transform = 'scale(1)';
+        nextBtn.style.boxShadow = '0 4px 15px rgba(25, 118, 210, 0.4)';
+    };
+    nextBtn.onclick = () => scrollGalleryContainer(200);
+    
+    controlsWrapper.appendChild(prevBtn);
+    controlsWrapper.appendChild(imagesContainer);
+    controlsWrapper.appendChild(nextBtn);
+    
+    // Indicateur de progression
+    const indicator = document.createElement('div');
+    indicator.id = 'photoIndicator';
+    indicator.style.cssText = `
+        text-align: center;
+        color: #666;
+        font-size: 0.9rem;
+        font-weight: bold;
+    `;
+    indicator.textContent = `${currentPhotos.length} photo${currentPhotos.length > 1 ? 's' : ''}`;
+    
+    mainContainer.appendChild(controlsWrapper);
+    mainContainer.appendChild(indicator);
+    gallery.appendChild(mainContainer);
+    
+    // Navigation au clavier
+    photoKeydownHandler = (event) => {
+        if (document.getElementById('photoModal').style.display === 'block') {
+            if (event.key === 'ArrowLeft') scrollGalleryContainer(-200);
+            if (event.key === 'ArrowRight') scrollGalleryContainer(200);
+        }
+    };
+    document.addEventListener('keydown', photoKeydownHandler);
+    
     document.getElementById('photoModal').style.display = 'block';
     disableScroll();
+}
+
+function scrollGalleryContainer(distance) {
+    const container = document.getElementById('imagesContainer');
+    if (container) {
+        container.scrollBy({
+            left: distance,
+            behavior: 'smooth'
+        });
+    }
 }
 
 function openLightbox(src) {
@@ -167,6 +338,11 @@ function closePhotoModal() {
     const modal = document.getElementById('photoModal');
     modal.style.display = 'none';
     enableScroll();
+    if (photoKeydownHandler) {
+        document.removeEventListener('keydown', photoKeydownHandler);
+    }
+    currentPhotos = [];
+    currentPhotoIndex = 0;
 }
 
 // === Effet de fade optimisé (uniquement sur la page home) ===
