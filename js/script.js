@@ -242,7 +242,7 @@ function openPhotoModal(photos) {
             img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
         };
         
-        img.addEventListener('click', () => openLightbox(src));
+        img.addEventListener('click', () => openLightbox(src)); 
         
         imgWrapper.appendChild(img);
         imagesContainer.appendChild(imgWrapper);
