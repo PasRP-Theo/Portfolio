@@ -593,6 +593,32 @@ document.addEventListener('DOMContentLoaded', () => {
     updateFadeBlocks();
 });
 
+// === Projets repliables ===
+document.addEventListener('DOMContentLoaded', () => {
+    const projectToggles = document.querySelectorAll('.project-toggle');
+
+    projectToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const targetId = toggle.getAttribute('aria-controls');
+            const details = targetId ? document.getElementById(targetId) : null;
+            if (!details) return;
+
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.textContent = 'Voir le detail du projet';
+                details.hidden = true;
+                return;
+            }
+
+            toggle.setAttribute('aria-expanded', 'true');
+            toggle.textContent = 'Masquer le detail';
+            details.hidden = false;
+        });
+    });
+});
+
 // === Calcul automatique du total d'heures ===
 document.addEventListener('DOMContentLoaded', () => {
     const hourCells = document.querySelectorAll('.activities-table tbody td:last-child span');

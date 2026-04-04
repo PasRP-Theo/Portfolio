@@ -709,6 +709,7 @@ body::before {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    align-items: start;
 }
 
 .portfolio-category {
@@ -736,6 +737,123 @@ body::before {
     font-size: 1.5rem;
     margin-bottom: 15px;
     font-weight: 600;
+}
+
+.project-card {
+    text-align: left;
+    align-self: start;
+    height: fit-content;
+}
+
+.featured-project {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+    border-color: rgba(100, 181, 246, 0.35);
+}
+
+.project-content {
+    text-align: left;
+}
+
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 20px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(100, 181, 246, 0.15);
+    color: #90caf9;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid rgba(100, 181, 246, 0.25);
+}
+
+.project-status-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.project-summary {
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.project-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border: 1px solid rgba(100, 181, 246, 0.25);
+    border-radius: 999px;
+    background: rgba(100, 181, 246, 0.12);
+    color: #e3f2fd;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-toggle::after {
+    content: '+';
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.project-toggle[aria-expanded="true"]::after {
+    content: '-';
+}
+
+.project-toggle:hover {
+    background: rgba(100, 181, 246, 0.2);
+    transform: translateY(-2px);
+}
+
+.project-details {
+    margin-top: 24px;
+    overflow: hidden;
+}
+
+.project-details[hidden] {
+    display: none;
+}
+
+.project-tags {
+    justify-content: flex-start;
+    margin-bottom: 24px;
+}
+
+.project-highlights {
+    margin: 0 0 24px 20px;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.8;
+}
+
+.project-highlights li + li {
+    margin-top: 10px;
+}
+
+.project-note {
+    color: rgba(255, 255, 255, 0.75);
+    font-style: italic;
+    line-height: 1.7;
+}
+
+.section-note {
+    margin-top: 40px;
+    font-style: italic;
+    color: #9aa7b8;
+}
+
+.contact-details {
+    margin-bottom: 0;
+}
+
+.contact-cta {
+    margin-top: 30px;
+    text-align: center;
 }
 
 .tech-tags {
@@ -905,6 +1023,18 @@ body::before {
 
     .portfolio-info {
         padding: 20px;
+    }
+
+    .project-status {
+        margin: 0 0 16px 0;
+    }
+
+    .project-tags {
+        justify-content: flex-start;
+    }
+
+    .project-highlights {
+        margin-left: 18px;
     }
 
     .tech-tags {
