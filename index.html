@@ -11,12 +11,17 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo" data-section="home">Théo Mertens</a>
+            <!-- <a href="#" class="logo" data-section="home">Théo Mertens</a> -->
+            <a href="#home" class="logo" data-section="home">Théo Mertens</a>
             <ul class="nav-menu">
-                <li><a href="#" class="nav-link active" data-section="home">Accueil</a></li>
-                <li><a href="#" class="nav-link" data-section="activities">Mes Activités</a></li>
-                <li><a href="#" class="nav-link" data-section="projects">Projets</a></li>
-                <li><a href="#" class="nav-link" data-section="contact">Contact</a></li>
+                <!-- <li><a href="#" class="nav-link active" data-section="home">Accueil</a></li> -->
+                <li><a href="#home" class="nav-link active" data-section="home">Accueil</a></li>
+                <!-- <li><a href="#" class="nav-link" data-section="activities">Mes Activités</a></li> -->
+                <li><a href="#activities" class="nav-link" data-section="activities">Mes Activités</a></li>
+                <!-- <li><a href="#" class="nav-link" data-section="projects">Projets</a></li> -->
+                <li><a href="#projects" class="nav-link" data-section="projects">Projets</a></li>
+                <!-- <li><a href="#" class="nav-link" data-section="contact">Contact</a></li> -->
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -48,7 +53,8 @@
                 </p>
                 <br>
                 <br>
-                <a href="#" class="cta-button" data-section="activities">Découvrir mes activités</a>
+                <!-- <a href="#" class="cta-button" data-section="activities">Découvrir mes activités</a> -->
+                <a href="#activities" class="cta-button" data-section="activities">Découvrir mes activités</a>
             </div>
             
             <div class="skills-content">
@@ -234,7 +240,7 @@
                     </table>
 
                     <!-- Totaux -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; font-weight: bold; font-size: 1.2em;">
+                    <div class="activities-totals">
                         <div class="total-hours">
                             Heures totales : <span id="totalHours">0 h</span>
                         </div>
