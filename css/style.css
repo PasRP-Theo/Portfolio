@@ -529,8 +529,19 @@ body::before {
     border: 2px solid rgba(25, 118, 210, 0.3);
 }
 
+/*
 .hero, .about-content, .skills-content {
     transition: opacity 0.3s ease;
+}
+*/
+
+.hero,
+.about-content,
+.skills-content,
+.about-content-activitis,
+.about-content-contact {
+    transition: opacity 0.35s ease;
+    will-change: opacity;
 }
 
 .hidden {

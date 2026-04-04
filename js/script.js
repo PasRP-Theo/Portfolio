@@ -486,6 +486,7 @@ function closePhotoModal() {
 }
 
 // === Effet de fade optimisé (uniquement sur la page home) ===
+/*
 let fadeAnimationFrame = null;
 
 window.addEventListener('scroll', () => {
@@ -538,6 +539,58 @@ document.addEventListener('DOMContentLoaded', () => {
     if (activitiesContent) {
         activitiesContent.style.opacity = '1';
     }
+});
+*/
+
+let fadeAnimationFrame = null;
+const fadeBlocksSelector = '.hero, .skills-content, .about-content, .about-content-activitis, .about-content-contact';
+
+function getFadeOpacity(block) {
+    const rect = block.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const fadeInStart = viewportHeight * 0.9;
+    const fadeInEnd = viewportHeight * 0.45;
+    const fadeOutStart = viewportHeight * 0.38;
+    const minimumOpacity = 0.28;
+
+    let opacity = 1;
+
+    if (rect.top > fadeInEnd) {
+        const revealProgress = (fadeInStart - rect.top) / (fadeInStart - fadeInEnd);
+        opacity = minimumOpacity + Math.max(0, Math.min(1, revealProgress)) * (1 - minimumOpacity);
+    }
+
+    if (rect.bottom < fadeOutStart) {
+        const fadeOutProgress = rect.bottom / fadeOutStart;
+        opacity = Math.min(opacity, minimumOpacity + Math.max(0, Math.min(1, fadeOutProgress)) * (1 - minimumOpacity));
+    }
+
+    if (rect.top <= fadeInEnd && rect.bottom >= fadeOutStart) {
+        opacity = 1;
+    }
+
+    return Math.max(minimumOpacity, Math.min(1, opacity));
+}
+
+function updateFadeBlocks() {
+    const fadeBlocks = document.querySelectorAll(fadeBlocksSelector);
+
+    fadeBlocks.forEach(block => {
+        block.style.opacity = String(getFadeOpacity(block));
+    });
+}
+
+window.addEventListener('scroll', () => {
+    if (fadeAnimationFrame) return;
+
+    fadeAnimationFrame = window.requestAnimationFrame(() => {
+        updateFadeBlocks();
+        fadeAnimationFrame = null;
+    });
+}, { passive: true });
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateFadeBlocks();
 });
 
 // === Calcul automatique du total d'heures ===
