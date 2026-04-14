@@ -648,7 +648,7 @@ body::before {
     background: rgba(255, 255, 255, 0.05);
     padding: 60px;
     border-radius: 30px;
-    margin-top: 120px;
+    margin-top: 0px;
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     text-align: center;
