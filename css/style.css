@@ -365,7 +365,7 @@ body::before {
 
 .activities-table th,
 .activities-table td {
-    padding: 20px;
+    padding: 20px 17px;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -420,14 +420,16 @@ body::before {
 
 .activity-description {
     color: rgba(255, 255, 255, 0.85);
-    max-width: 400px;
+    max-width: 300px;
+    font-size: 0.9rem;
+    word-break: break-word;
 }
 
 .activity-level {
-    padding: 8px 16px;
+    padding: 6px 12px;
     border-radius: 20px;
     color: white;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: bold;
     text-align: center;
     display: inline-block;
@@ -491,10 +493,11 @@ body::before {
     background: linear-gradient(135deg, #1976d2, #0d47a1);
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 10px 18px;
     border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
@@ -983,6 +986,10 @@ body::before {
 
     .activities-table td:nth-child(6)::before {
         content: 'Heures';
+    }
+
+    .activities-table td:nth-child(7)::before {
+        content: 'Heures valorisées';
     }
 
     .activity-name {

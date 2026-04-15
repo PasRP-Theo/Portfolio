@@ -621,20 +621,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // === Calcul automatique du total d'heures ===
 document.addEventListener('DOMContentLoaded', () => {
-    const hourCells = document.querySelectorAll('.activities-table tbody td:last-child span');
-    let total = 0;
-
-    hourCells.forEach(cell => {
+    const realHourCells = document.querySelectorAll('.activities-table tbody td:nth-child(6) span');
+    let totalReal = 0;
+    realHourCells.forEach(cell => {
         const match = cell.textContent.match(/(\d+)\s*h/);
-        if (match) total += parseInt(match[1]);
+        if (match) totalReal += parseInt(match[1]);
+    });
+
+    const valuedHourCells = document.querySelectorAll('.activities-table tbody td:nth-child(7) span');
+    let totalValued = 0;
+    valuedHourCells.forEach(cell => {
+        const match = cell.textContent.match(/(\d+)\s*h/);
+        if (match) totalValued += parseInt(match[1]);
     });
 
     // Total d'heures réel
     const totalHours = document.getElementById('totalHours');
-    if (totalHours) totalHours.textContent = total + ' h';
+    if (totalHours) totalHours.textContent = totalReal + ' h';
 
     // Total valorisé (plafonné à 60h)
-    const totalValorise = Math.min(total, 60);
+    const totalValoriseCapped = Math.min(totalValued, 60);
     const totalValoriseElement = document.getElementById('totalValorise');
-    if (totalValoriseElement) totalValoriseElement.textContent = totalValorise + ' h';
+    if (totalValoriseElement) totalValoriseElement.textContent = totalValoriseCapped + ' h';
 });
