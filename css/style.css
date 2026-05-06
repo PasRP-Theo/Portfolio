@@ -9,7 +9,7 @@ body {
     line-height: 1.6;
     color: #333;
     /* Background statique optimisé */
-    background: linear-gradient(135deg, #0a1929 0%, #1a2332 50%, #0d47a1 100%);
+    background: linear-gradient(135deg, #142840 0%, #1e3050 50%, #1a5fb4 100%);
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
@@ -26,9 +26,9 @@ body::before {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(13, 71, 161, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(25, 118, 210, 0.2) 0%, transparent 50%);
+    background:
+        radial-gradient(circle at 20% 80%, rgba(26, 95, 180, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(41, 140, 230, 0.3) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
@@ -199,38 +199,134 @@ body::before {
     }
 }
 
-/* Home section optimisée */
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: rgba(255, 255, 255, 0.05);
-    margin-bottom: 60px;
-    border-radius: 30px;
-    margin: 40px auto 60px auto;
+/* Home section — split layout */
+.hero-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    min-height: calc(100vh - 70px);
+    padding: 60px 0;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 560px;
+}
+
+.hero-greeting {
+    font-size: 1.1rem;
+    color: #64b5f6;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+}
+
+.hero-name {
+    font-size: 3.8rem;
+    color: white;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 14px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-role {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 24px;
+    font-weight: 400;
+}
+
+.hero-accent {
+    color: #64b5f6;
+    font-weight: 700;
+}
+
+.hero-desc {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.8;
+    margin-bottom: 36px;
+    max-width: 500px;
+}
+
+/* Polygon photo shape */
+.hero-visual {
+    flex-shrink: 0;
+    position: relative;
+    width: 360px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-polygon-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(100, 181, 246, 0.35) 0%, transparent 70%);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    filter: blur(18px);
+    z-index: 0;
+}
+
+.hero-polygon {
     position: relative;
     z-index: 1;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    transition: opacity 0.3s ease;
+    width: 320px;
+    height: 360px;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    background: linear-gradient(160deg, #1976d2 0%, #0d47a1 60%, #64b5f6 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    color: white;
-    margin-bottom: 20px;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    font-weight: 700;
-    letter-spacing: -1px;
+.hero-polygon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
 }
 
-.hero .subtitle {
-    font-size: 1.3rem;
+.hero-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    font-weight: 800;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: -2px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 900px) {
+    .hero-split {
+        flex-direction: column-reverse;
+        text-align: center;
+        min-height: 0;
+        padding: 40px 0;
+        gap: 40px;
+    }
+    .hero-visual {
+        width: 260px;
+        height: 290px;
+    }
+    .hero-polygon {
+        width: 230px;
+        height: 260px;
+    }
+    .hero-name {
+        font-size: 2.8rem;
+    }
+    .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .cta-button {
@@ -1064,6 +1160,84 @@ body::before {
     }
 }
 
+
+/* ===== Alternating zigzag layout ===== */
+
+.section-left > .hero,
+.section-left > .skills-content,
+.section-left > .about-content-activitis {
+    margin-left: 0;
+    margin-right: 12%;
+    text-align: left;
+}
+
+.section-right > .hero,
+.section-right > .skills-content,
+.section-right > .about-content-activitis {
+    margin-left: 12%;
+    margin-right: 0;
+    text-align: left;
+}
+
+/* Keep grids/tags/hobbies internally centered regardless of side */
+.section-left .skills-tags,
+.section-right .skills-tags,
+.section-left .hobbies-grid,
+.section-right .hobbies-grid,
+.section-left .portfolio-grid,
+.section-right .portfolio-grid,
+.section-left .activities-table-container,
+.section-right .activities-table-container,
+.section-left .activities-totals,
+.section-right .activities-totals,
+.section-left .contact-social-links,
+.section-right .contact-social-links {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Decorative side accent */
+.section-left > .hero::before,
+.section-left > .skills-content::before,
+.section-left > .about-content-activitis::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 30px;
+    bottom: 30px;
+    width: 4px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #1976d2, #64b5f6);
+    opacity: 0.7;
+}
+
+.section-right > .hero::before,
+.section-right > .skills-content::before,
+.section-right > .about-content-activitis::before {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 30px;
+    bottom: 30px;
+    width: 4px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #64b5f6, #1976d2);
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .section-left > .hero,
+    .section-left > .skills-content,
+    .section-left > .about-content-activitis,
+    .section-right > .hero,
+    .section-right > .skills-content,
+    .section-right > .about-content-activitis {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* ===== End alternating layout ===== */
 
 /* Hobbies section */
 .hobbies-intro {
