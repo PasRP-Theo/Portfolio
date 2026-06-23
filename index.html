@@ -18,7 +18,7 @@
                 <li><a href="#home" class="nav-link active" data-section="home">Accueil</a></li>
                 <li><a href="#competences" class="nav-link" data-section="competences">Compétences</a></li>
                 <li><a href="#hobbies" class="nav-link" data-section="hobbies">Hobbies</a></li>
-                <li><a href="#activities" class="nav-link" data-section="activities">Mes Activités</a></li>
+                <li><a href="#activities" class="nav-link" data-section="activities">Expérience</a></li>
                 <!-- <li><a href="#" class="nav-link" data-section="projects">Projets</a></li> -->
                 <li><a href="#projects" class="nav-link" data-section="projects">Projets</a></li>
                 <!-- <li><a href="#" class="nav-link" data-section="contact">Contact</a></li> -->
@@ -40,12 +40,12 @@
                 <div class="hero-text">
                     <p class="hero-greeting">Bonjour, c'est moi</p>
                     <h1 class="hero-name">Théo Mertens</h1>
-                    <p class="hero-role">Étudiant en <span class="hero-accent">Technologie de l'informatique</span></p>
+                    <p class="hero-role">Développeur & <span class="hero-accent">Technicien Systèmes</span></p>
                     <p class="hero-desc">
-                        Étudiant à l'EPHEC de Louvain-la-Neuve, passionné par le développement, l'électronique et le hardware.
-                        Mon profil polyvalent me permet d'allier la technique logicielle à la logique matérielle.
+                        Bachelier en Technologies de l'Informatique (EPHEC), avec une expérience en stage chez Arkdevel sur Kubernetes et Django.
+                        Profil polyvalent combinant développement logiciel, administration système et électronique.
                     </p>
-                    <a href="#activities" class="cta-button" data-section="activities">Découvrir mes activités</a>
+                    <a href="#projects" class="cta-button" data-section="projects">Voir mes projets</a>
                 </div>
                 <div class="hero-visual">
                     <div class="hero-polygon-glow"></div>
@@ -70,7 +70,9 @@
                     <span class="skill-tag">JavaScript</span>
                     <span class="skill-tag">React</span>
                     <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Django</span>
                     <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Lua</span>
                     <span class="skill-tag">C (bases)</span>
                 </div>
             </div>
@@ -80,8 +82,10 @@
                 <div class="skills-tags">
                     <span class="skill-tag">Linux</span>
                     <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
                     <span class="skill-tag">Git / GitHub</span>
                     <span class="skill-tag">Microsoft 365</span>
+                    <span class="skill-tag">Azure (bases)</span>
                 </div>
             </div>
 
@@ -146,158 +150,99 @@
             </div>
         </section>
 
-        <!-- Activities Section -->
+        <!-- Experience Section -->
         <section id="activities" class="section">
             <div class="about-content-activitis">
-                <h2>Mes Activités</h2>
-                <p>
-                    Découvrez les différents domaines dans lesquels j'ai évolué et les activités 
-                    qui ont rythmé mon quotidien durant mon passage à l'EPHEC.
-                </p>
-                <div class="activities-table-container">
-                    <table class="activities-table">
-                        <thead>
-                            <tr>
-                                <th>Activité</th>
-                                <th>Description</th>
-                                <th>Catégorie</th>
-                                <th>Action</th>
-                                <th>Photos</th>
-                                <th>Heures</th>
-                                <th>Heures valorisées</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="activity-name">Journée découverte Artemys Belgium</td>
-                                <td class="activity-description">Découverte de toutes leurs activités</td>
-                                <td><span class="activity-level level-beginner">Réseau & Sécurité</span></td>
-                                <td><button class="detail-button" onclick="openModal('artemys')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/artemys/20231001_174115.jpg','css/img/artemys/20231001_160403.jpg','css/img/artemys/20231001_160555.jpg','css/img/artemys/20231001_160600.jpg','css/img/artemys/20231001_173323.jpg','css/img/artemys/moi.jpg','css/img/artemys/20231001_174314.jpg','css/img/artemys/20231001_174319.jpg'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">10 h</span></td>
-                                <td><span class="activity-level level-beginner">10 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">Développement d'un serveur GTA 5 RP</td>
-                                <td class="activity-description">Conception de scripts pour le bon fonctionnement du serveur</td>
-                                <td><span class="activity-level level-expert">Développement</span></td>
-                                <td><button class="detail-button" onclick="openModal('GTA-RP')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/GTA_RP/logs.png','css/img/GTA_RP/image.png','css/img/GTA_RP/image2.png','css/img/GTA_RP/image3.png','css/img/GTA_RP/image4.png','css/img/GTA_RP/image5.png','css/img/GTA_RP/image6.png','css/img/GTA_RP/preuveDiscord.png','css/img/GTA_RP/preuve.jpg'])">Voir photos</button></td>
-                                <td><span class="activity-level level-intermediate">50 h</span></td>
-                                <td><span class="activity-level level-intermediate">10 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">Développement</td>
-                                <td class="activity-description">Je me suis amusé à faire de multiples petits codes pour m'amuser et m'entraîner qui n'ont pas forcément été utiles</td>
-                                <td><span class="activity-level level-expert">Développement</span></td>
-                                <td><button class="detail-button" onclick="openModal('webTest')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/deve/log.png','css/img/deve/calculette.png','css/img/deve/memory.png','css/img/deve/preuve.jpg'])">Voir photos</button></td>
-                                <td><span class="activity-level level-expert">17 h</span></td>
-                                <td><span class="activity-level level-expert">0 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">Formation OpenClassroom</td>
-                                <td class="activity-description">Formation pour le langage JavaScript</td>
-                                <td><span class="activity-level level-beginner">Développement</span></td>
-                                <td><button class="detail-button" onclick="openModal('openclassroomJS')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/Openclassroom_js/1.png','css/img/Openclassroom_js/2.png'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">10 h</span></td>
-                                <td><span class="activity-level level-beginner">10 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">Formation OpenClassroom sur l'IA</td>
-                                <td class="activity-description">Formation sur l'IA</td>
-                                <td><span class="activity-level level-beginner">Intelligence Artificielle</span></td>
-                                <td><button class="detail-button" onclick="openModal('openclassroomIA')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/Openclassroom_ia/1.png','css/img/Openclassroom_ia/2.png'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">6 h</span></td>
-                                <td><span class="activity-level level-beginner">2 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">Hackathon 2025</td>
-                                <td class="activity-description">Expérience de programmation et électronique durant 48h</td>
-                                <td><span class="activity-level level-beginner">Dev & Électronique</span></td>
-                                <td><button class="detail-button" onclick="openModal('projetInt')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/hackaton/1.jpg','css/img/hackaton/2.jpg','css/img/hackaton/3.jpg','css/img/hackaton/4.jpg','css/img/hackaton/5.jpg','css/img/hackaton/6.jpg'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">48 h</span></td>
-                                <td><span class="activity-level level-beginner">10 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">Formation Azure</td>
-                                <td class="activity-description">Conférence sur les outils Microsoft et le cloud</td>
-                                <td><span class="activity-level level-beginner">Administration système</span></td>
-                                <td><button class="detail-button" onclick="openModal('formationEphec')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/formation_ephec/formationEphec.png'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">2 h</span></td>
-                                <td><span class="activity-level level-beginner">2 h</span></td>
-                            </tr>
+                <h2>Expérience</h2>
+                <p>Les expériences concrètes qui ont forgé mes compétences en développement, administration système et électronique.</p>
 
-                            <tr>
-                                <td class="activity-name">Réparation d'un broyeur</td>
-                                <td class="activity-description">Depuis une dizaine d'années, ce broyeur dormait dans mon jardin, je me suis donc dit que le réparer pouvait être une bonne chose pour l'entretien de mon jardin</td>
-                                <td><span class="activity-level level-beginner">Électronique</span></td>
-                                <td><button class="detail-button" onclick="openModal('Broyeur')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/broyeur/img1.jpg','css/img/broyeur/img2.jpg','css/img/broyeur/preuve.jpg'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">2 h</span></td>
-                                <td><span class="activity-level level-beginner">2 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">Réparation de manettes PS5</td>
-                                <td class="activity-description">Manettes PS5 présentant un problème de drift : remplacement des joysticks défectueux.</td>
-                                <td><span class="activity-level level-beginner">Électronique</span></td>
-                                <td><button class="detail-button" onclick="openModal('manetteps5')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/reparation_pss5/imageps5.jpg'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">3 h</span></td>
-                                <td><span class="activity-level level-beginner">2 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">Rénovation de vieux PC</td>
-                                <td class="activity-description">Réparation et rénovation de vieux PC</td>
-                                <td><span class="activity-level level-beginner">Hardware</span></td>
-                                <td><button class="detail-button" onclick="openModal('vieuxpc')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/rénovation_vieux_pc/img1.jpg','css/img/rénovation_vieux_pc/img2.jpg','css/img/rénovation_vieux_pc/img3.jpg'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">4 h</span></td>
-                                <td><span class="activity-level level-beginner">2 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">Remise à neuf de la peinture d'une maison</td>
-                                <td class="activity-description">Rénovation de la peinture d'une salle de bain</td>
-                                <td><span class="activity-level level-beginner">Job étudiant</span></td>
-                                <td><button class="detail-button" onclick="openModal('peinture')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/renovationsdb/1.png','css/img/renovationsdb/2.png','css/img/renovationsdb/3.png','css/img/renovationsdb/preuve.jpg'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">10 h</span></td>
-                                <td><span class="activity-level level-beginner">0 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">Stage — Arkdevel</td>
-                                <td class="activity-description">Stage en administration système avec Kubernetes et développement avec Django</td>
-                                <td><span class="activity-level level-expert">Admin Sys & Dev</span></td>
-                                <td><button class="detail-button" onclick="openModal('stage-arkdevel')">Voir détails</button></td>
-                                <td><span class="activity-level level-beginner">—</span></td>
-                                <td><span class="activity-level level-expert">448 h</span></td>
-                                <td><span class="activity-level level-beginner">0 h</span></td>
-                            </tr>
-                            <tr>
-                                <td class="activity-name">24h Vélo Louvain-la-Neuve</td>
-                                <td class="activity-description">24h de course relais à vélo</td>
-                                <td><span class="activity-level level-beginner">Sport</span></td>
-                                <td><button class="detail-button" onclick="openModal('24h')">Voir détails</button></td>
-                                <td><button class="detail-button" onclick="openPhotoModal(['css/img/24hvelo/1.png','css/img/24hvelo/2.png','css/img/24hvelo/3.png'])">Voir photos</button></td>
-                                <td><span class="activity-level level-beginner">10 h</span></td>
-                                <td><span class="activity-level level-beginner">10 h</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="portfolio-grid">
 
-                    <!-- Totaux -->
-                    <div class="activities-totals">
-                        <div class="total-hours">
-                            Heures totales : <span id="totalHours">0 h</span>
+                    <!-- Stage Arkdevel -->
+                    <article class="portfolio-category project-card featured-project">
+                        <div class="project-status">Stage · 2025 · 3 mois</div>
+                        <div class="portfolio-info project-content">
+                            <h3>Stage — Arkdevel</h3>
+                            <p class="project-summary">
+                                Stage en entreprise portant sur l'administration système avec Kubernetes et le développement back-end avec Django (Python). Environnement professionnel réel, en autonomie progressive.
+                            </p>
+                            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="exp-arkdevel-details">
+                                Voir le détail
+                            </button>
+                            <div class="project-details" id="exp-arkdevel-details" hidden>
+                                <div class="tech-tags project-tags">
+                                    <span class="skill-tag">Kubernetes</span>
+                                    <span class="skill-tag">Django</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">Docker</span>
+                                    <span class="skill-tag">Linux</span>
+                                    <span class="skill-tag">Administration système</span>
+                                </div>
+                                <ul class="project-highlights">
+                                    <li>Administration et orchestration de conteneurs avec Kubernetes en environnement cloud.</li>
+                                    <li>Déploiement et gestion d'applications back-end avec Django.</li>
+                                    <li>Travail en conditions réelles, autonomie progressive, gestion de priorités.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="total-hours">
-                            Heures valorisées : <span id="totalValorise">0 h</span>
+                    </article>
+
+                    <!-- Hackathon 2025 -->
+                    <article class="portfolio-category project-card">
+                        <div class="project-status project-status-secondary">Événement · 2025 · 48h</div>
+                        <div class="portfolio-info project-content">
+                            <h3>Hackathon EPHEC 2025</h3>
+                            <p class="project-summary">
+                                Compétition de 48h combinant programmation et électronique. Reconditionnement d'un objet obsolète via une solution technique originale, en équipe, sous contrainte de temps.
+                            </p>
+                            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="exp-hackathon-details">
+                                Voir le détail
+                            </button>
+                            <div class="project-details" id="exp-hackathon-details" hidden>
+                                <div class="tech-tags project-tags">
+                                    <span class="skill-tag">Électronique</span>
+                                    <span class="skill-tag">Développement</span>
+                                    <span class="skill-tag">Travail en équipe</span>
+                                    <span class="skill-tag">Gestion du temps</span>
+                                </div>
+                                <ul class="project-highlights">
+                                    <li>Reconditionnement d'un objet obsolète via une solution technique originale.</li>
+                                    <li>Collaboration en équipe sous forte contrainte de temps (48h non-stop).</li>
+                                    <li>Intégration matériel/logiciel dans un projet complet livré en conditions réelles.</li>
+                                </ul>
+                                <button type="button" class="detail-button detail-button--photos" onclick="openPhotoModal(['css/img/hackaton/1.jpg','css/img/hackaton/2.jpg','css/img/hackaton/3.jpg','css/img/hackaton/4.jpg','css/img/hackaton/5.jpg','css/img/hackaton/6.jpg'])">Voir photos</button>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+
+                    <!-- Journée Artemys -->
+                    <article class="portfolio-category project-card">
+                        <div class="project-status project-status-secondary">Visite d'entreprise · 2023</div>
+                        <div class="portfolio-info project-content">
+                            <h3>Journée découverte — Artemys Belgium</h3>
+                            <p class="project-summary">
+                                Immersion d'une journée au sein d'Artemys Belgium, spécialisée en réseaux, sécurité et télécommunications. Découverte des activités, des outils et des conférences IA et sécurité.
+                            </p>
+                            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="exp-artemys-details">
+                                Voir le détail
+                            </button>
+                            <div class="project-details" id="exp-artemys-details" hidden>
+                                <div class="tech-tags project-tags">
+                                    <span class="skill-tag">Réseau</span>
+                                    <span class="skill-tag">Sécurité</span>
+                                    <span class="skill-tag">Intelligence Artificielle</span>
+                                    <span class="skill-tag">Télécommunication</span>
+                                </div>
+                                <ul class="project-highlights">
+                                    <li>Découverte des activités télécoms, sécurité et IA d'une entreprise du secteur.</li>
+                                    <li>Conférences sur la cybersécurité et les usages professionnels de l'IA.</li>
+                                    <li>Aperçu concret des métiers et outils du secteur réseau & sécurité.</li>
+                                </ul>
+                                <button type="button" class="detail-button detail-button--photos" onclick="openPhotoModal(['css/img/artemys/20231001_174115.jpg','css/img/artemys/20231001_160403.jpg','css/img/artemys/20231001_160555.jpg','css/img/artemys/20231001_160600.jpg','css/img/artemys/20231001_173323.jpg','css/img/artemys/moi.jpg','css/img/artemys/20231001_174314.jpg','css/img/artemys/20231001_174319.jpg'])">Voir photos</button>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
             </div>
 
@@ -353,41 +298,31 @@
                     </article>
 
                     <article class="portfolio-category project-card">
-                        <div class="project-status project-status-secondary">Objectif d'études</div>
+                        <div class="project-status project-status-secondary">Projet personnel · ~50h</div>
                         <div class="portfolio-info project-content">
-                            <h3>Spécialisation en électronique</h3>
+                            <h3>Serveur GTA 5 RP (FiveM)</h3>
                             <p class="project-summary">
-                                Je souhaite poursuivre mon parcours par des études orientées électronique et systèmes embarqués afin de renforcer mes compétences en conception matérielle, IoT et programmation bas niveau.
+                                Conception et administration d'un serveur FiveM multijoueur : scripting Lua et JavaScript, gestion de base de données MySQL, développement de systèmes RP complets (métiers, économie, logs Discord).
                             </p>
-                            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-dev-details">
-                                Voir mon objectif
+                            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-gta-details">
+                                Voir le détail du projet
                             </button>
-                            <div class="project-details" id="project-dev-details" hidden>
+                            <div class="project-details" id="project-gta-details" hidden>
+                                <div class="tech-tags project-tags">
+                                    <span class="skill-tag">Lua</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">MySQL</span>
+                                    <span class="skill-tag">FiveM</span>
+                                    <span class="skill-tag">Administration serveur</span>
+                                </div>
                                 <ul class="project-highlights">
-                                    <li>Approfondir mes connaissances en architecture matérielle et en programmation de microcontrôleurs.</li>
-                                    <li>Développer une expertise plus poussée sur les systèmes embarqués et l'interaction matériel/logiciel.</li>
-                                    <li>Construire une suite logique après mon bachelier et mon TFE axé sur la fiabilité des systèmes matériels.</li>
+                                    <li>Création et configuration d'un serveur FiveM de A à Z.</li>
+                                    <li>Scripting Lua/JavaScript pour les mécaniques de jeu : métiers, économie, quêtes.</li>
+                                    <li>Gestion d'une base de données MySQL pour les données joueurs.</li>
+                                    <li>Système de logs relié à Discord pour la modération et la supervision.</li>
+                                    <li>Tests, débogage et optimisation des performances du serveur.</li>
                                 </ul>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="portfolio-category project-card">
-                        <div class="project-status project-status-secondary">Objectif professionnel</div>
-                        <div class="portfolio-info project-content">
-                            <h3>Carrière en développement et hardware</h3>
-                            <p class="project-summary">
-                                Je peux également me lancer directement dans le monde professionnel, dans une entreprise active en développement, électronique ou hardware, afin de travailler sur des projets concrets et évoluer rapidement sur le terrain.
-                            </p>
-                            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-tech-details">
-                                Voir mon objectif
-                            </button>
-                            <div class="project-details" id="project-tech-details" hidden>
-                                <ul class="project-highlights">
-                                    <li>Mettre en pratique mes compétences en développement logiciel, diagnostic technique et résolution de problèmes.</li>
-                                    <li>Participer à des projets liés aux systèmes, à l'électronique ou au matériel informatique.</li>
-                                    <li>Continuer à apprendre dans un cadre professionnel concret, avec une forte dimension pratique.</li>
-                                </ul>
+                                <button type="button" class="detail-button detail-button--photos" onclick="openPhotoModal(['css/img/GTA_RP/logs.png','css/img/GTA_RP/image.png','css/img/GTA_RP/image2.png','css/img/GTA_RP/image3.png','css/img/GTA_RP/image4.png','css/img/GTA_RP/image5.png','css/img/GTA_RP/image6.png','css/img/GTA_RP/preuveDiscord.png','css/img/GTA_RP/preuve.jpg'])">Voir captures</button>
                             </div>
                         </div>
                     </article>
@@ -427,193 +362,6 @@
         </section>
     </main>
 
-    <!-- Modals pour les détails des activités -->
-    <div id="stage-arkdevel-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('stage-arkdevel')">&times;</span>
-            <h3>Stage — Arkdevel</h3>
-            <p><strong>Thème : Administration système & Développement</strong></p>
-            <p><strong>Compétences mises en pratique :</strong></p>
-            <ul>
-                <li>Administration et orchestration de conteneurs avec <strong>Kubernetes</strong></li>
-                <li>Déploiement et gestion d'applications en environnement cloud</li>
-                <li>Développement back-end avec le framework <strong>Django</strong> (Python)</li>
-                <li>Travail en environnement professionnel réel</li>
-            </ul>
-            <p><strong>Statut :</strong> Stage en cours — 2025</p>
-        </div>
-    </div>
-
-    <div id="artemys-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('artemys')">&times;</span>
-            <h3>Visite d'entreprise</h3>
-            <p><strong>Malheureusement, je n'ai pas de preuve de participation active mais j'étais bien présent à cet événement</strong></p>
-            <p><strong>Thème : Visite d'entreprise</strong></p>
-            <p><strong>Technologies vues :</strong></p>
-            <ul>
-                <li>Télécommunication</li>
-                <li>Sécurité</li>
-                <li>Conférence IA</li>
-                <li>Conférence Sécurité</li>
-                <li>Appareils utilisés</li>
-                <li>Softwares utilisés</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="GTA-RP-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('GTA-RP')">&times;</span>
-            <h3>Développement d'un serveur GTA RP</h3>
-            <p><strong>Thème : Développement & administration</strong></p>
-            <p><strong>Compétences :</strong></p>
-            <ul>
-                <li>Création et configuration de serveurs FiveM</li>
-                <li>Scripting Lua et JavaScript pour le gameplay</li>
-                <li>Gestion des bases de données MySQL pour les joueurs</li>
-                <li>Développement de systèmes RP : métiers, économie, quêtes</li>
-                <li>Tests, optimisation et débogage des fonctionnalités</li>
-                <li>Systèmes de logs reliés à Discord</li>
-            </ul>
-            <p><strong>But :</strong> Offrir une expérience immersive et fluide, où chaque joueur peut évoluer dans un univers cohérent et interactif, tout en respectant l'équilibre et la stabilité du serveur.</p>
-        </div>
-    </div>
-
-    <div id="webTest-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('webTest')">&times;</span>
-            <h3>Projets Personnels</h3>
-            <p><strong>Thème : Développement & administration & gestion de données</strong></p>
-            <p><strong>Projets récents :</strong></p>
-            <ul>
-                <li>Petite interface de calcul</li>
-                <li>Jeu web interactif</li>
-                <li>Bot Discord pour voir les logs d'un serveur GTA RP</li>
-            </ul>
-            <p><strong>Motivation :</strong> Expérimenter avec de nouvelles technologies et créer des solutions innovantes pour des problèmes du quotidien mais surtout pour apprendre quand j'étais en bac 1.</p>
-        </div>
-    </div>
-
-    <div id="openclassroomJS-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('openclassroomJS')">&times;</span>
-            <h3>Formation JavaScript</h3>
-            <p><strong>Thème : Formation</strong></p>
-            <p><strong>Objectifs pédagogiques :</strong></p>
-            <ul>
-                <li>Manipuler des données avec JavaScript</li>
-                <li>Écrire un fichier JavaScript</li>
-                <li>Faire interagir JavaScript avec une page web</li>
-                <li>Créer un formulaire de saisie de données</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="openclassroomIA-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('openclassroomIA')">&times;</span>
-            <h3>Formation sur l'IA</h3>
-            <p><strong>Thème : Formation</strong></p>
-            <p><strong>Objectifs pédagogiques :</strong></p>
-            <ul>
-                <li>Comprendre les bases du fonctionnement de l'intelligence artificielle</li>
-                <li>Découvrir les différents types d'apprentissage automatique</li>
-                <li>Identifier les cas d'usage concrets de l'IA dans le monde professionnel</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="projetInt-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('projetInt')">&times;</span>
-            <h3>Hackathon 2025</h3>
-            <p><strong>Thème : Expérience informatique</strong></p>
-            <p><strong>Objectifs pédagogiques :</strong></p>
-            <ul>
-                <li>Donner une seconde vie à un vieil objet afin qu'il soit reconditionné</li>
-                <li>Dans l'établissement de l'EPHEC</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div id="formationEphec-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('formationEphec')">&times;</span>
-            <h3>Formation Azure EPHEC</h3>
-            <p><strong>Thème : Formation</strong></p>
-            <p><strong>Objectifs pédagogiques :</strong></p>
-            <ul>
-                <li>Comprendre et manipuler les technologies Azure</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="Broyeur-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('Broyeur')">&times;</span>
-            <h3>Réparation d'un broyeur</h3>
-            <p><strong>Thème : Électronique & électricité</strong></p>
-            <p><strong>Objectifs pédagogiques :</strong></p>
-            <ul>
-                <li>Manipuler et réparer de l'électronique dans un environnement réel</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="manetteps5-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('manetteps5')">&times;</span>
-            <h3>Réparation manette PS5</h3>
-            <p><strong>Thème : Électronique & électricité</strong></p>
-            <p><strong>Objectifs pédagogiques :</strong></p>
-            <ul>
-                <li>Mise en pratique du cours d'électronique</li>
-                <li>Diagnostic et remplacement de composants défectueux (joysticks)</li>
-                <li>Manipulation de circuits soudés sur PCB</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="vieuxpc-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('vieuxpc')">&times;</span>
-            <h3>Réparation vieux PC</h3>
-            <p><strong>Thème : Technologies des ordinateurs</strong></p>
-            <p><strong>Objectifs pédagogiques :</strong></p>
-            <ul>
-                <li>Mise en pratique du cours de technologies des ordinateurs de bac 1</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="peinture-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('peinture')">&times;</span>
-            <h3>Remise en peinture d'une maison</h3>
-            <p><strong>Thème : Soft Skills / Job étudiant</strong></p>
-            <p><strong>Ce que j'en retire :</strong></p>
-            <ul>
-                <li>Sens du travail bien fait et souci du détail</li>
-                <li>Capacité à travailler de façon autonome et méthodique</li>
-                <li>Expérience concrète d'un job étudiant en dehors de l'informatique</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="24h-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('24h')">&times;</span>
-            <h3>24h Vélo Louvain-la-Neuve</h3>
-            <p><strong>Thème : Expérience sportive & vie étudiante</strong></p>
-            <p><strong>Ce que j'en retire :</strong></p>
-            <ul>
-                <li>Esprit d'équipe et solidarité dans un effort collectif</li>
-                <li>Gestion de l'effort sur la durée (course relais de 24h)</li>
-                <li>Participation à un événement emblématique de la vie étudiante belge</li>
-            </ul>
-        </div>
-    </div>
 
     <script src="js/script.js"></script>
 </body>

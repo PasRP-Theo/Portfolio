@@ -600,6 +600,10 @@ body::before {
     box-shadow: 0 4px 15px rgba(25, 118, 210, 0.5);
 }
 
+.detail-button--photos {
+    margin-top: 12px;
+}
+
 .detail-button:hover {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 6px 20px rgba(25, 118, 210, 0.6);
